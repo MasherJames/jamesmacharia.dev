@@ -1,0 +1,120 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+  border-bottom: 1px solid var(--primary-600);
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  color: var(--secondary-500);
+}
+
+.playground {
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--accent1-500);
+}
+
+.description {
+  font-family: "Red Hat Mono", monospace;
+  font-size: 0.875rem;
+  color: var(--primary-600);
+  margin-bottom: 1rem;
+}
+
+.component-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.drag-area {
+  position: relative;
+  height: 250px;
+  border: 1px dashed var(--primary-600);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.drag-box {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-family: "Red Hat Mono", monospace;
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.rebound-box {
+  background-color: var(--secondary-300);
+  color: var(--primary-100);
+}
+
+.free-box {
+  background-color: var(--accent1-400);
+  color: white;
+}
+
+.cursor-area {
+  display: flex;
+  gap: 2rem;
+}
+
+.follow-box {
+  padding: 2rem 3rem;
+  background-color: var(--secondary-200);
+  color: var(--primary-100);
+  border-radius: 12px;
+  font-family: "Red Hat Mono", monospace;
+  font-size: 0.875rem;
+  text-align: center;
+  user-select: none;
+}
+
+.follow-box.accent {
+  background-color: var(--accent1-300);
+  color: white;
+}
+
+.rotator-demo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.scroll-container {
+  width: 300px;
+  height: 150px;
+  overflow-y: scroll;
+  border: 1px solid var(--primary-600);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.scroll-content {
+  height: 800px;
+  font-family: "Red Hat Mono", monospace;
+  font-size: 0.875rem;
+  color: var(--primary-600);
+}
+
+.rotator-box {
+  width: 6rem;
+  height: 6rem;
+  background-color: var(--accent1-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}

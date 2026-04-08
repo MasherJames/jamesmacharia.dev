@@ -1,9 +1,0 @@
-{
-  "extends":"ts-config-site/base.json",
-  "compilerOptions": {
-    "moduleResolution": "bundler",
-  },
-  "include": ["stories", "storybook", "vite.config.ts"],
-}
-
-

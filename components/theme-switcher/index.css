@@ -1,0 +1,27 @@
+:host {
+  display: inline-block;
+}
+
+.themeswitcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.themeswitcher svg {
+  position: absolute;
+  transition: 1s ease;
+  rotate: 0deg;
+  scale: 0;
+}
+
+.themeswitcher svg.active {
+  rotate: 360deg;
+  scale: 1.2;
+}

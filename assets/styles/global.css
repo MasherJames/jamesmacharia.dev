@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('/fonts/Agrandir-Medium.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('/fonts/Agrandir-WideMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('/fonts/Agrandir-WideBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Light theme colors */
+:root,
+html.light {
+    --primary-100: #1b1a18;
+    --primary-200: #31302e;
+    --primary-300: #393836;
+    --primary-400: #454440;
+    --primary-500: #54514d;
+    --primary-600: #6a6762;
+    --primary-700: #85827c;
+    --primary-800: #a8a4a0;
+
+    --secondary-100: #0c5b11;
+    --secondary-200: #086c0c;
+    --secondary-300: #028907;
+    --secondary-400: #00b505;
+    --secondary-500: #00cb00;
+    --secondary-600: #24fb20;
+    --secondary-700: #5bff53;
+    --secondary-800: #9aff92;
+    --secondary-900: #cbffc5;
+
+    --accent1-100: #74117e;
+    --accent1-200: #8a0e9a;
+    --accent1-300: #a60ebd;
+    --accent1-400: #c516e3;
+    --accent1-500: #de3cff;
+    --accent1-600: #eb6dff;
+    --accent1-700: #f1a3ff;
+    --accent1-800: #f6ccff;
+    --accent1-900: #fae6ff;
+
+    --bg: var(--primary-800);
+    --text: var(--primary-100);
+}
+
+/* Dark theme colors */
+html.dark {
+    --primary-100: #1a181f;
+    --primary-200: #6c6a73;
+    --primary-300: #cdcad4;
+    --primary-400: #e1e0e8;
+
+    --secondary-100: #090;
+    --secondary-200: #00cb00;
+    --secondary-300: #39ff14;
+    --secondary-400: #e1e0e8;
+
+    --accent1-100: #bf00ff;
+    --accent1-200: #de3cff;
+    --accent1-300: #fd5eff;
+    --accent1-400: #e1e0e8;
+
+    --bg: var(--primary-100);
+    --text: var(--primary-400);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: 'Agrandir', sans-serif;
+    font-weight: 400;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}

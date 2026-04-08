@@ -1,22 +1,23 @@
 {
-    "name": "personalsite",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "dev": "turbo run dev --no-cache --continue",
-        "lint": "turbo run lint",
-        "prettier": "turbo run prettier",
-        "stylelint": "turbo run stylelint",
-        "prepare": "husky install"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "husky": "^8.0.3",
-        "lint-staged": "^13.2.2",
-        "turbo": "^1.10.12",
-        "sass": "^1.64.2"
-    }
+  "name": "jamesmacharia.dev",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "biome check .",
+    "lint:fix": "biome check --fix .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.10",
+    "@types/node": "^25.5.2",
+    "husky": "^9.1.7",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.7"
+  }
 }

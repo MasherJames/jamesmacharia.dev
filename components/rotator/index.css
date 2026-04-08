@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.rotator {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+}
+
+.rotator.rounded {
+  border-radius: 50%;
+}
+
+.rotator.rounded ::slotted(*) {
+  border-radius: 50%;
+}
+
+.rotator.rotatechildren ::slotted(.childtarget) {
+  rotate: var(--rotation-deg);
+}
+
+.rotator.rotateparent {
+  rotate: var(--rotation-deg);
+}
+
+.rotator.rotateparent ::slotted(.childtarget) {
+  rotate: var(--counter-rotation-deg);
+}
+
+.rotator.rotateboth {
+  rotate: var(--rotation-deg);
+}

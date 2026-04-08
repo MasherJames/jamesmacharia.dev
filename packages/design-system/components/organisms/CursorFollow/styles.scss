@@ -1,5 +1,0 @@
-.cursorfollow {
-    cursor: var(--cursor);
-    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.2);
-    transform: translate3d(var(--xtransform), var(--ytransform), 0);
-}
