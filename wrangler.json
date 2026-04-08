@@ -1,4 +1,9 @@
 {
   "name": "personalsite",
-  "pages_build_output_dir": "dist"
+  "compatibility_date": "2026-04-08",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  },
+  "compatibility_flags": ["nodejs_compat"]
 }
