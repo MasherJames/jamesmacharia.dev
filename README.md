@@ -1,8 +1,9 @@
 # jamesmacharia.dev
-Personal website 
+Personal website
 
-## Tools
-
+## Built with
+- Web Components
+- CSS
 - TypeScript
 - Vite
 - Biome
