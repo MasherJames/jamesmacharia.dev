@@ -189,7 +189,7 @@ export class JmIdentityPillar extends JmBase {
       .map(
         (p, i) => `
           <div class="panel ${i === 0 ? 'active' : ''}" style="--panel-color: var(--${p.color})">
-            <h3 class="panel-title">${p.title}</h3>
+            <h2 class="panel-title">${p.title}</h2>
             <p class="panel-description">${p.description}</p>
           </div>
         `,

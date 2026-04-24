@@ -1,2 +1,14 @@
-import '@components/index.ts';
+import '@components/layout';
+import '@components/navigation';
+import '@components/theme-switcher';
+import '@components/custom-cursor';
+import '@components/cursor-follow';
+import '@components/gradient-divider';
+import '@components/highlighted-text';
+import '@components/identity-pillar';
+import '@components/project-card';
+import '@components/section-reveal';
+import '@components/stacked-carousel';
+import '@components/status-dot';
+import '@components/button';
 import './styles.css';

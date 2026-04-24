@@ -1,2 +1,10 @@
-import '@components/index.ts';
+import '@components/layout';
+import '@components/navigation';
+import '@components/theme-switcher';
+import '@components/custom-cursor';
+import '@components/gradient-divider';
+import '@components/highlighted-text';
+import '@components/section-reveal';
+import '@components/timeline-strip';
+import '@components/currently-timeline';
 import './styles.css';

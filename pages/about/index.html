@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="About James Macharia — Fullstack engineer, Sauti founder, student pilot, and mathematics graduate based in Nairobi." />
-    <link rel="icon" type="image/jpeg" href="/images/Profile.jpg" />
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/images/Profile-256.webp" />
     <title>James Macharia — About</title>
+    <link rel="preload" href="/fonts/Agrandir-WideBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/RedHatMono-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/styles/global.css" />
     <script src="/scripts/view-transitions.js"></script>
     <script type="module" src="/pages/about/main.ts"></script>
@@ -16,11 +19,13 @@
 
             <!-- Intro -->
             <section class="about-intro">
-                <jm-highlighted-text
-                    heading
-                    text="I'm James — a fullstack software engineer based in Nairobi, building things that matter."
-                    highlight="James,Nairobi,matter"
-                ></jm-highlighted-text>
+                <h1 class="about-intro-heading">
+                    <jm-highlighted-text
+                        heading
+                        text="I'm James — a fullstack software engineer based in Nairobi, building things that matter."
+                        highlight="James,Nairobi,matter"
+                    ></jm-highlighted-text>
+                </h1>
                 <div class="intro-short">
                     <p>
                         Over five years shipping <strong>backend systems</strong>, <strong>APIs</strong>, and <strong>data platforms</strong> across enterprise AI, insurance tech and whatsApp performance marketing solutions. On the frontend I lean into <strong>design systems</strong>. I'm also the <strong>founder of Sauti</strong>, a platform producing radio and TV ads in Kenya's 42+ indigenous languages.

@@ -8,11 +8,17 @@
   margin-bottom: 2.5rem;
 }
 
-.services-hero jm-highlighted-text {
-  font-size: clamp(1.5rem, 3vw, 3rem);
+.services-hero-heading {
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
   line-height: 1.15;
   font-weight: 700;
   margin-bottom: 1.5rem;
+  min-height: 1.15em;
+  letter-spacing: -0.01em;
+}
+
+.services-hero-heading jm-highlighted-text {
+  font: inherit;
 }
 
 .services-sub {
@@ -58,7 +64,7 @@
   color: var(--accent1-500);
 }
 
-.service-content h3 {
+.service-content h2 {
   font-size: 1.2rem;
   font-weight: 500;
   margin-bottom: 1rem;

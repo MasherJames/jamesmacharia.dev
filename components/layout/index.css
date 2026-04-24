@@ -9,14 +9,14 @@ main {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
 }
 
 footer {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 3rem 2rem;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 4vw, 3rem) 2rem;
   border-top: 1px solid var(--border-subtle);
   view-transition-name: site-footer;
 }
@@ -51,16 +51,15 @@ footer {
 }
 
 @media (max-width: 768px) {
-  main {
-    padding: 0 1.5rem;
-  }
-
-  footer {
-    padding: 2rem 1.5rem 1.5rem;
-  }
-
   .footer-inner {
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
   }
 }

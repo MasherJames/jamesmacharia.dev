@@ -35,10 +35,16 @@
   color: var(--border-strong);
 }
 
-.post-title jm-highlighted-text {
-  font-size: clamp(1.5rem, 3vw, 3rem);
+.post-title {
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
   line-height: 1.15;
   font-weight: 700;
+  letter-spacing: -0.01em;
+  min-height: calc(2 * 1.15em);
+}
+
+.post-title jm-highlighted-text {
+  font: inherit;
 }
 
 /* Body typography */

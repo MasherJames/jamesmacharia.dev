@@ -49,30 +49,49 @@
 /* Navigation Dots */
 .nav-dots {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   align-items: center;
+  margin-left: -8px;
 }
 
 .nav-dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-dot::before {
+  content: "";
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  border: none;
   background: var(--border-default);
-  cursor: pointer;
   transition:
     background 0.3s ease,
     transform 0.3s ease;
-  padding: 0;
 }
 
-.nav-dot.active {
+.nav-dot.active::before {
   background: var(--accent1-500);
   transform: scale(1.4);
 }
 
-.nav-dot:hover:not(.active) {
+.nav-dot:hover:not(.active)::before {
   background: var(--border-strong);
+}
+
+.nav-dot:focus-visible {
+  outline: 2px solid var(--accent1-500);
+  outline-offset: 2px;
+  border-radius: 50%;
 }
 
 /* Progress Ring */
@@ -154,11 +173,23 @@
 }
 
 .card-company {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--card-accent, var(--accent1-500));
+  color: var(--text);
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-company::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--card-accent, var(--accent1-500));
 }
 
 .card-title {
@@ -202,16 +233,35 @@
   }
 
   .card-stack {
-    height: 350px;
+    height: 360px;
   }
 }
 
 @media (max-width: 768px) {
   .card-stack {
-    height: 300px;
+    height: 340px;
   }
 
   .carousel-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+  }
+
+  .card-tag {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .card-stack {
+    height: 380px;
+  }
+
+  .card-description {
+    font-size: 0.78rem;
+    line-height: 1.7;
   }
 }

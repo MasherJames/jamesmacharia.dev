@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Services — Backend engineering, frontend design systems, and AI/LLM integration by James Macharia." />
-    <link rel="icon" type="image/jpeg" href="/images/Profile.jpg" />
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/images/Profile-256.webp" />
     <title>James Macharia — Services</title>
+    <link rel="preload" href="/fonts/Agrandir-WideBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/RedHatMono-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/styles/global.css" />
     <script src="/scripts/view-transitions.js"></script>
     <script type="module" src="/pages/services/main.ts"></script>
@@ -15,11 +18,13 @@
         <div class="page services-page">
 
             <section class="services-hero">
-                <jm-highlighted-text
-                    heading
-                    text="What I can do for you."
-                    highlight="you"
-                ></jm-highlighted-text>
+                <h1 class="services-hero-heading">
+                    <jm-highlighted-text
+                        heading
+                        text="What I can do for you."
+                        highlight="you"
+                    ></jm-highlighted-text>
+                </h1>
                 <p class="services-sub">
                     I work with teams and founders who need someone who can think across the stack. Here's what I bring to the table — not a price list, but a clear picture of how I can help.
                 </p>
@@ -32,7 +37,7 @@
                     <div class="service-item">
                         <div class="service-number">01</div>
                         <div class="service-content">
-                            <h3>Backend & API Engineering</h3>
+                            <h2>Backend & API Engineering</h2>
                             <p>
                                 Designing and building scalable backend services, REST and GraphQL APIs, data pipelines. Django, Python, Node. Experience with PostgreSQL, MongoDB, S3/CloudFront, Celery, and the infrastructure that keeps production systems reliable. I've built systems that handle evaluation pipelines, data labeling workflows, and real-time processing at scale.
                             </p>
@@ -44,7 +49,7 @@
                     <div class="service-item">
                         <div class="service-number">02</div>
                         <div class="service-content">
-                            <h3>Frontend & Design Systems</h3>
+                            <h2>Frontend & Design Systems</h2>
                             <p>
                                 React, Vue, Web Components, TypeScript, CSS, build system tools, design systems architecture. I'm building Ekko — a vanilla Web Components library. I care about making frontend feel considered and consistent. Not just components, but the tokens, patterns, and documentation that let a team move fast without things falling apart.
                             </p>
@@ -56,7 +61,7 @@
                     <div class="service-item">
                         <div class="service-number">03</div>
                         <div class="service-content">
-                            <h3>AI / LLM Integration & Evaluation</h3>
+                            <h2>AI / LLM Integration & Evaluation</h2>
                             <p>
                                 Building systems that use LLMs in production — evaluation pipelines, fine-tuning workflows, RAG systems, data platforms for AI training. This isn't theoretical. It's hands-on experience from building Sauti, where I'm designing the ML architecture around XTTS v2 voice synthesis and NLLB-200 translation for vernacular ad production. If you're shipping AI, I can help you ship it well.
                             </p>

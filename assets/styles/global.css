@@ -1,4 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@font-face {
+    font-family: 'Red Hat Mono';
+    src: url('/fonts/RedHatMono-latin.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Red Hat Mono';
+    src: url('/fonts/RedHatMono-italic-latin.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: italic;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 @font-face {
     font-family: 'Agrandir';
@@ -80,8 +96,8 @@ html.light {
 
     --bg: #f5f3f0;
     --text: var(--primary-100);
-    --text-muted: var(--primary-500);
-    --text-subtle: var(--primary-600);
+    --text-muted: var(--primary-400);
+    --text-subtle: var(--primary-500);
 }
 
 /* Dark theme colors */
@@ -125,7 +141,7 @@ html.dark {
 
     --bg: var(--primary-100);
     --text: var(--primary-400);
-    --text-muted: var(--primary-200);
+    --text-muted: var(--primary-300);
     --text-subtle: var(--primary-300);
 }
 
@@ -173,6 +189,33 @@ img {
 
 :not(:defined) {
     visibility: hidden;
+}
+
+/* Reserve layout space for custom elements before upgrade so they don't
+   collapse (inline, zero-height) and cause CLS when their shadow DOM
+   renders. These match the :host display declared in each component. */
+jm-layout:not(:defined),
+jm-navigation:not(:defined),
+jm-highlighted-text:not(:defined),
+jm-gradient-divider:not(:defined),
+jm-identity-pillar:not(:defined),
+jm-stacked-carousel:not(:defined),
+jm-section-reveal:not(:defined),
+jm-project-card:not(:defined),
+jm-status-dot:not(:defined),
+jm-timeline-strip:not(:defined),
+jm-currently-timeline:not(:defined) {
+    display: block;
+}
+
+jm-cursor-follow:not(:defined) {
+    display: block;
+}
+
+jm-cursor-follow[inline]:not(:defined),
+jm-button:not(:defined),
+jm-theme-switcher:not(:defined) {
+    display: inline-block;
 }
 
 @view-transition {

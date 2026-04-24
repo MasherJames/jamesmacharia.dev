@@ -45,6 +45,8 @@ export default defineConfig({
   build: {
     outDir: resolve(projectRoot, 'dist'),
     emptyOutDir: true,
+    target: 'es2022',
+    modulePreload: { polyfill: false },
     rollupOptions: {
       input: {
         home: resolve(projectRoot, 'index.html'),
@@ -53,6 +55,20 @@ export default defineConfig({
         services: resolve(projectRoot, 'pages/services/index.html'),
         writing: resolve(projectRoot, 'pages/writing/index.html'),
         webComponents2026: resolve(projectRoot, 'pages/writing/web-components-in-2026/index.html'),
+      },
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('/components/base/')) return 'components-base';
+          if (
+            id.includes('/components/layout/') ||
+            id.includes('/components/navigation/') ||
+            id.includes('/components/theme-switcher/') ||
+            id.includes('/components/custom-cursor/')
+          ) {
+            return 'components-shell';
+          }
+          return undefined;
+        },
       },
     },
   },
