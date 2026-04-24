@@ -1,1 +1,8 @@
+set -e
+
+pnpm format
 pnpm lint
+pnpm analyze
+
+# Stage anything the steps above touched
+git add -u

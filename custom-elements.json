@@ -41,18 +41,18 @@
         },
         {
           "kind": "js",
-          "name": "JmDraggableElement",
-          "declaration": {
-            "name": "JmDraggableElement",
-            "module": "./draggable-element"
-          }
-        },
-        {
-          "kind": "js",
           "name": "JmGradientDivider",
           "declaration": {
             "name": "JmGradientDivider",
             "module": "./gradient-divider"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "JmHighlightedText",
+          "declaration": {
+            "name": "JmHighlightedText",
+            "module": "./highlighted-text"
           }
         },
         {
@@ -89,22 +89,6 @@
         },
         {
           "kind": "js",
-          "name": "JmRotator",
-          "declaration": {
-            "name": "JmRotator",
-            "module": "./rotator"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "RotationScrollTarget",
-          "declaration": {
-            "name": "RotationScrollTarget",
-            "module": "./rotator"
-          }
-        },
-        {
-          "kind": "js",
           "name": "JmSectionReveal",
           "declaration": {
             "name": "JmSectionReveal",
@@ -117,14 +101,6 @@
           "declaration": {
             "name": "JmStackedCarousel",
             "module": "./stacked-carousel"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "JmHighlightedText",
-          "declaration": {
-            "name": "JmHighlightedText",
-            "module": "./highlighted-text"
           }
         },
         {
@@ -149,49 +125,6 @@
           "declaration": {
             "name": "JmTimelineStrip",
             "module": "./timeline-strip"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/base/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmBase",
-          "members": [
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected"
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "HTMLElement"
-          },
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmBase",
-          "declaration": {
-            "name": "JmBase",
-            "module": "components/base/index.ts"
           }
         }
       ]
@@ -322,6 +255,86 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/currently-timeline/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmCurrentlyTimeline",
+          "members": [
+            {
+              "kind": "field",
+              "name": "items",
+              "type": {
+                "text": "CurrentlyItem[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "items"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-currently-timeline",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmCurrentlyTimeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-currently-timeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/cursor-follow/index.ts",
       "declarations": [
         {
@@ -441,86 +454,6 @@
           "declaration": {
             "name": "JmCursorFollow",
             "module": "components/cursor-follow/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/currently-timeline/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmCurrentlyTimeline",
-          "members": [
-            {
-              "kind": "field",
-              "name": "items",
-              "type": {
-                "text": "CurrentlyItem[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "items"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-currently-timeline",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmCurrentlyTimeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-currently-timeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
           }
         }
       ]
@@ -696,6 +629,49 @@
           "declaration": {
             "name": "JmCustomCursor",
             "module": "components/custom-cursor/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/base/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmBase",
+          "members": [
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected"
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmBase",
+          "declaration": {
+            "name": "JmBase",
+            "module": "components/base/index.ts"
           }
         }
       ]
@@ -1069,187 +1045,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/draggable-element/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmDraggableElement",
-          "members": [
-            {
-              "kind": "field",
-              "name": "isDragging",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "shouldAnimateOnRebound",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "position",
-              "type": {
-                "text": "object"
-              },
-              "privacy": "private",
-              "default": "{ left: 0, top: 0 }"
-            },
-            {
-              "kind": "field",
-              "name": "offset",
-              "type": {
-                "text": "object"
-              },
-              "privacy": "private",
-              "default": "{ x: 0, y: 0 }"
-            },
-            {
-              "kind": "field",
-              "name": "initialPosition",
-              "type": {
-                "text": "object"
-              },
-              "privacy": "private",
-              "default": "{ left: 0, top: 0 }"
-            },
-            {
-              "kind": "field",
-              "name": "boundMouseMove",
-              "type": {
-                "text": "(e: MouseEvent) => void"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "boundMouseUp",
-              "type": {
-                "text": "() => void"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shouldRebound",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "shouldBounceOnRebound",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "handleMouseDown",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseMove",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleMouseUp",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateStyles",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "rebound"
-            },
-            {
-              "name": "bounce-on-rebound"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-draggable-element",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmDraggableElement",
-          "declaration": {
-            "name": "JmDraggableElement",
-            "module": "components/draggable-element/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-draggable-element",
-          "declaration": {
-            "name": "JmDraggableElement",
-            "module": "components/draggable-element/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/layout/index.ts",
       "declarations": [
         {
@@ -1538,161 +1333,6 @@
           "declaration": {
             "name": "JmProjectCard",
             "module": "components/project-card/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/rotator/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmRotator",
-          "members": [
-            {
-              "kind": "field",
-              "name": "rotationDeg",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "scrollHandler",
-              "type": {
-                "text": "(() => void) | null"
-              },
-              "privacy": "private",
-              "default": "null"
-            },
-            {
-              "kind": "field",
-              "name": "currentScrollTarget",
-              "type": {
-                "text": "HTMLElement | null"
-              },
-              "privacy": "private",
-              "default": "null"
-            },
-            {
-              "kind": "field",
-              "name": "target",
-              "type": {
-                "text": "RotationScrollTarget"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "isRounded",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "unbindScrollTarget",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "bindScrollTarget",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateRotation",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "scroll-target"
-            },
-            {
-              "name": "target"
-            },
-            {
-              "name": "width"
-            },
-            {
-              "name": "height"
-            },
-            {
-              "name": "rounded"
-            },
-            {
-              "name": "color"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-rotator",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmRotator",
-          "declaration": {
-            "name": "JmRotator",
-            "module": "components/rotator/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-rotator",
-          "declaration": {
-            "name": "JmRotator",
-            "module": "components/rotator/index.ts"
           }
         }
       ]
