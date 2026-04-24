@@ -148,11 +148,6 @@
 }
 
 @media (max-width: 768px) {
-  .home-page {
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-  }
-
   .hero-ctas {
     flex-direction: column;
     align-items: flex-start;

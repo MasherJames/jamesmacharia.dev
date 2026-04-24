@@ -90,11 +90,6 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .contact-page {
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-  }
-
   .contact-grid {
     grid-template-columns: 1fr;
   }

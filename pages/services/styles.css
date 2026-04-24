@@ -119,11 +119,6 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .services-page {
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-  }
-
   .service-item {
     grid-template-columns: 1fr;
     gap: 1rem;

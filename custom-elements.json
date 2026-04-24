@@ -174,86 +174,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/currently-timeline/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmCurrentlyTimeline",
-          "members": [
-            {
-              "kind": "field",
-              "name": "items",
-              "type": {
-                "text": "CurrentlyItem[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "items"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-currently-timeline",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmCurrentlyTimeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-currently-timeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/button/index.ts",
       "declarations": [
         {
@@ -678,6 +598,98 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/highlighted-text/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmHighlightedText",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "highlightWords",
+              "type": {
+                "text": "string[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text"
+            },
+            {
+              "name": "highlight"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-highlighted-text",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmHighlightedText",
+          "declaration": {
+            "name": "JmHighlightedText",
+            "module": "components/highlighted-text/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-highlighted-text",
+          "declaration": {
+            "name": "JmHighlightedText",
+            "module": "components/highlighted-text/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/gradient-divider/index.ts",
       "declarations": [
         {
@@ -773,6 +785,86 @@
           "declaration": {
             "name": "JmGradientDivider",
             "module": "components/gradient-divider/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/currently-timeline/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmCurrentlyTimeline",
+          "members": [
+            {
+              "kind": "field",
+              "name": "items",
+              "type": {
+                "text": "CurrentlyItem[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "items"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-currently-timeline",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmCurrentlyTimeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-currently-timeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
           }
         }
       ]
@@ -947,98 +1039,6 @@
           "declaration": {
             "name": "JmIdentityPillar",
             "module": "components/identity-pillar/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/highlighted-text/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmHighlightedText",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "highlightWords",
-              "type": {
-                "text": "string[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text"
-            },
-            {
-              "name": "highlight"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-highlighted-text",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmHighlightedText",
-          "declaration": {
-            "name": "JmHighlightedText",
-            "module": "components/highlighted-text/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-highlighted-text",
-          "declaration": {
-            "name": "JmHighlightedText",
-            "module": "components/highlighted-text/index.ts"
           }
         }
       ]
@@ -1679,98 +1679,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/status-dot/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmStatusDot",
-          "members": [
-            {
-              "kind": "field",
-              "name": "isAvailable",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "available"
-            },
-            {
-              "name": "label"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-status-dot",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmStatusDot",
-          "declaration": {
-            "name": "JmStatusDot",
-            "module": "components/status-dot/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-status-dot",
-          "declaration": {
-            "name": "JmStatusDot",
-            "module": "components/status-dot/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/theme-switcher/index.ts",
       "declarations": [
         {
@@ -1958,6 +1866,98 @@
           "declaration": {
             "name": "JmTimelineStrip",
             "module": "components/timeline-strip/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/status-dot/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmStatusDot",
+          "members": [
+            {
+              "kind": "field",
+              "name": "isAvailable",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "available"
+            },
+            {
+              "name": "label"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-status-dot",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmStatusDot",
+          "declaration": {
+            "name": "JmStatusDot",
+            "module": "components/status-dot/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-status-dot",
+          "declaration": {
+            "name": "JmStatusDot",
+            "module": "components/status-dot/index.ts"
           }
         }
       ]
