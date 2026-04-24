@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  width: 100%;
+  margin: 5rem 0;
+}
+
+.divider {
+  position: relative;
+  height: var(--height, 1px);
+  width: 100%;
+  overflow: hidden;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    var(--gradient-start) 0%,
+    var(--gradient-mid) 50%,
+    transparent 80%
+  );
+  opacity: 0.5;
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:host(.revealed) .divider::before {
+  transform: scaleX(1);
+}
+
+/* Linear variant */
+.divider.linear::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gradient-start) 20%,
+    var(--gradient-mid) 50%,
+    var(--gradient-end) 80%,
+    transparent 100%
+  );
+}

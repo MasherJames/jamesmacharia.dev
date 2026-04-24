@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ten lessons from a year of vanilla web components — shadow DOM mental model, upgrade timing, cross-document View Transitions, and what happens when the boundary meets forms and events." />
+    <link rel="icon" type="image/jpeg" href="/images/Profile.jpg" />
+    <title>Web Components in 2026 — James Macharia</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="/scripts/view-transitions.js"></script>
+    <script type="module" src="/pages/writing/web-components-in-2026/main.ts"></script>
+</head>
+<body>
+    <jm-layout>
+        <article class="page post-page">
+
+            <header class="post-header">
+                <a href="/writing/" class="post-back">&larr; All writing</a>
+                <div class="post-meta">
+                    <time>April 2026</time>
+                    <span class="post-dot">·</span>
+                    <span class="reading-time">12 min read</span>
+                </div>
+                <h1 class="post-title">
+                    <jm-highlighted-text
+                        heading
+                        text="Web Components in 2026: What I Learned Building a Component Library and a Portfolio."
+                        highlight="2026,Components"
+                    ></jm-highlighted-text>
+                </h1>
+            </header>
+
+            <div class="post-body">
+
+                <p class="lede">
+                    In 2026 I finally did the thing I'd been putting off since 2022 — I went all-in on the platform. No React, no Vue, no Svelte. Just <code>customElements.define</code>, Shadow DOM, and the HTML parser.
+                </p>
+
+                <p>
+                    Two projects in parallel pushed me into the deep end. <a href="https://github.com/Mellow254/Ekko" target="_blank" rel="noopener">Ekko</a> is a headless, multi-brand design system I ship as a library. This site — <a href="https://github.com/MasherJames/jamesmacharia.dev" target="_blank" rel="noopener">jamesmacharia.dev</a> — is a vanilla Vite MPA where every visible thing is a custom element. They teach overlapping but distinct lessons.
+                </p>
+
+                <p>
+                    Here are ten lessons learnt from these 2 projects. They're ranked roughly by how much time I'd have saved if I'd known them from the start.
+                </p>
+
+                <!-- Section 1 -->
+                <h2 class="post-section-title">The Mental Model</h2>
+
+                <h3 class="lesson-title"><span class="lesson-num">01</span> Shadow DOM is a selector wall, not a style shield</h3>
+
+                <p>
+                    When I first moved components into shadow DOM, I assumed my global reset was gone — that the boundary was a hard seal around the component. So I started copy-pasting <code>* { box-sizing: border-box }</code> and <code>h1 { font-family: Agrandir }</code> into every component's stylesheet. Then I re-read the actual spec.
+                </p>
+
+                <p>
+                    The shadow boundary blocks <em>selectors</em> from reaching in, but it does not block <em>inheritance</em>. <code>color</code>, <code>font-family</code>, <code>line-height</code>, CSS custom properties — anything that's inheritable propagates through unchanged. What doesn't inherit is everything that requires a selector match: <code>* { box-sizing }</code>, <code>a { text-decoration }</code>, <code>img { max-width }</code>, the whole class of reset rules.
+                </p>
+
+                <p>
+                    Once that clicked, my base shadow stylesheet shrunk to three blocks. Nothing more:
+                </p>
+
+<pre><code class="language-css">h1, h2, h3, h4, h5, h6 { font-family: "Agrandir", sans-serif; }
+a { color: inherit; text-decoration: none; }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}</code></pre>
+
+                <p>
+                    Nothing about colors, nothing about theme variables, nothing about typography tokens — all of that flows in through inheritance from <code>:root</code> for free. The base sheet declares only what selectors can't reach in from outside.
+                </p>
+
+                <p class="callout">
+                    <strong>The mental model to steal:</strong> the shadow boundary is a trespass wall, not a light shield. Selectors trespass; light passes through.
+                </p>
+
+                <h3 class="lesson-title"><span class="lesson-num">02</span> <code>adoptedStyleSheets</code>: one sheet, many shadows</h3>
+
+                <p>
+                    The obvious way to style a custom element is to drop a <code>&lt;style&gt;</code> tag into its shadow root. That works, but every instance parses and owns its own stylesheet. For a page with fifteen project cards and ten highlighted-text elements, that's twenty-five identical parsed stylesheets in memory.
+                </p>
+
+                <p>
+                    <code>adoptedStyleSheets</code> fixes this. Construct one <code>CSSStyleSheet</code> at module scope, populate it with <code>replaceSync</code>, then adopt it on every instance:
+                </p>
+
+<pre><code class="language-ts">// A shared base class — one reset sheet, adopted on every instance
+import baseCss from './base.css?inline';
+
+const baseStyles = new CSSStyleSheet();
+baseStyles.replaceSync(baseCss);
+
+export class BaseElement extends HTMLElement {
+  protected shadow: ShadowRoot;
+  constructor(componentStyles?: CSSStyleSheet) {
+    super();
+    this.shadow = this.attachShadow({ mode: 'open' });
+    const sheets: CSSStyleSheet[] = [baseStyles];
+    if (componentStyles) sheets.push(componentStyles);
+    this.shadow.adoptedStyleSheets = sheets;
+  }
+}</code></pre>
+
+                <p>
+                    Every subclass builds its own component sheet the same way and hands it up to <code>super()</code>:
+                </p>
+
+<pre><code class="language-ts">// A concrete component — constructs its own sheet, hands it up
+import navCss from './navigation.css?inline';
+const styles = new CSSStyleSheet();
+styles.replaceSync(navCss);
+
+export class AppNavigation extends BaseElement {
+  constructor() { super(styles); }
+  // …
+}</code></pre>
+
+                <p>
+                    Both sheets are constructed once per module load — adopted many, parsed never-again. The <code>?inline</code> suffix is Vite's magic: it imports the CSS file contents as a string instead of injecting a <code>&lt;link&gt;</code>, which is what makes <code>replaceSync</code> possible. It's one of two reasons modern Vite is fantastic for vanilla web components — the other is <code>?url</code>.
+                </p>
+
+                <!-- ============== Section 2 ============== -->
+                <h2 class="post-section-title">The Upgrade Timeline</h2>
+
+                <h3 class="lesson-title"><span class="lesson-num">03</span> <code>:not(:defined)</code> is the lightest FOUC guard</h3>
+
+                <p>
+                    Before a custom element is <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/upgrade#description" target="_blank" rel="noopener">upgraded</a>, the browser treats it as an unknown inline element. Any children inside render with no styling, and when the upgrade finally lands, layout shifts as the shadow DOM takes effect. It's the vanilla-custom-element version of the <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank" rel="noopener">flash of unstyled content</a> problem.
+                </p>
+
+                <p>
+                    The one-line fix is a single rule in a light-DOM stylesheet — your global CSS, a <code>&lt;style&gt;</code> tag in the document head, anywhere the selector can match the host element before it's upgraded:
+                </p>
+
+<pre><code class="language-css">:not(:defined) {
+  visibility: hidden;
+}</code></pre>
+
+                <p>
+                    Two things to notice. First, <code>visibility: hidden</code>, not <code>display: none</code>. Visibility preserves the box, so no reflow happens when the element upgrades — just a paint. <code>display: none</code> would collapse the element, then expand it back on upgrade, which is exactly the layout shift you were trying to hide.
+                </p>
+
+                <p>
+                    Second, the rule lives in the light-DOM stylesheet, not in the component's own shadow sheet. It has to — <code>:host</code> rules don't apply until the element is <em>already</em> defined, which is too late. You need a selector that matches at parse time, before upgrade.
+                </p>
+
+                <p>
+                    The selector is unscoped on purpose. <code>:not(:defined)</code> technically matches every undefined element, built-in or custom. Built-ins are always defined by the time CSS parses, so in practice only not-yet-upgraded custom elements match. Terse, global, does the right thing.
+                </p>
+
+                <h3 class="lesson-title"><span class="lesson-num">04</span> <code>pagereveal</code> + <code>whenDefined</code> — the fix for FOUC during cross-document View Transitions</h3>
+
+                <p>
+                    Cross-document View Transitions are a 2026 treat. Two lines of CSS —
+                </p>
+
+<pre><code class="language-css">@view-transition {
+  navigation: auto;
+}</code></pre>
+
+                <p>
+                    — and same-origin navigations crossfade between pages. The browser snapshots the outgoing page, loads the new one, takes the new snapshot, composites them. No router, no framework.
+                </p>
+
+                <p>
+                    With custom elements, there's a race. The browser snapshots the incoming page at its first rendering opportunity, which can happen <em>before</em> custom elements have upgraded. The transition then fades from a fully-rendered old page into an unstyled pre-upgrade new page, and the real content pops in after the crossfade ends. It looks broken in a way that's hard to point at.
+                </p>
+
+                <p>
+                    The fix is <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/pagereveal_event" target="_blank" rel="noopener">pagereveal</a> — a 2026 browser event that fires on the incoming document right before it's revealed. If you attach an <code>async</code> listener, the browser awaits the returned promise before taking the new snapshot. Pair it with <code>customElements.whenDefined</code>, which resolves the moment a name is registered:
+                </p>
+
+<pre><code class="language-js">window.addEventListener('pagereveal', async (e) =&gt; {
+  if (!e.viewTransition) return;
+  try {
+    await Promise.all([
+      customElements.whenDefined('app-layout'),
+      customElements.whenDefined('app-navigation'),
+    ]);
+  } catch {
+    e.viewTransition.skipTransition();
+  }
+});</code></pre>
+
+                <p>
+                    Two subtleties. Only wait on the <em>top-level</em> custom elements — every other component is defined in the same module chain, so once the outer elements resolve, all their descendants are already defined. And wrap the await in <code>try/catch</code> with <code>skipTransition()</code> as the fallback, so if <code>whenDefined</code> ever refuses to resolve, you get an instant page swap instead of a hung page.
+                </p>
+
+                <p>
+                    The effect is transformative. The crossfade now runs between two fully-upgraded, fully-styled snapshots. Click around this site and watch the nav sit rock-solid while only the main content fades — SPA-smoothness on a genuine MPA, no router in sight.
+                </p>
+
+                <h3 class="lesson-title"><span class="lesson-num">05</span> The <code>pagereveal</code> script must be parser-blocking, not a module</h3>
+
+                <p>
+                    I had the <code>pagereveal</code> listener inside my module-script entry — a regular <code>&lt;script type="module"&gt;</code> — and the transition still showed FOUC.
+                </p>
+
+                <p>
+                    Here's the trap. <code>&lt;script type="module"&gt;</code> is <strong>deferred by default</strong>. You don't have to write <code>defer</code>; it's implicit. Execution is postponed until after HTML parsing completes. That means the listener registers <em>after</em> the moment the browser wants to fire <code>pagereveal</code>. No listener, no await, no guard.
+                </p>
+
+                <p>
+                    The fix is a classic script — no <code>type</code>, no <code>defer</code>, no <code>async</code> — placed before the module entry:
+                </p>
+
+<pre><code class="language-html">&lt;link rel="stylesheet" href="/global.css" /&gt;
+&lt;script src="/view-transitions.js"&gt;&lt;/script&gt;         &lt;!-- classic, parser-blocking --&gt;
+&lt;script type="module" src="/main.js"&gt;&lt;/script&gt;       &lt;!-- deferred --&gt;</code></pre>
+
+                <p>
+                    A classic script with no attributes halts the parser while it fetches and executes, then parsing continues. By the time <code>pagereveal</code> is anywhere near firing, the listener is already attached.
+                </p>
+
+                <p>The timing table worth memorising:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Script tag</th>
+                            <th>Fetch</th>
+                            <th>Execute</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;script src&gt;</code> (classic)</td>
+                            <td>blocks parser</td>
+                            <td>blocks parser</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;script src defer&gt;</code></td>
+                            <td>parallel</td>
+                            <td>after parsing</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;script src async&gt;</code></td>
+                            <td>parallel</td>
+                            <td>whenever it arrives</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;script type="module"&gt;</code></td>
+                            <td>parallel</td>
+                            <td>after parsing (implicit defer)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    For listeners that have to be live before the page's first rendering opportunity — <code>pagereveal</code>, <code>pageswap</code>, anything paint-adjacent — you want row one.
+                </p>
+
+                <h3 class="lesson-title"><span class="lesson-num">06</span> <code>upgradeProperty</code> — the ceremony React consumers make you do</h3>
+
+                <p>
+                    This one is library-side only. Framework consumers — React 19+ especially — assign custom-element properties rather than setting attributes:
+                </p>
+
+<pre><code class="language-jsx">&lt;x-button variant="primary" disabled&gt;Click&lt;/x-button&gt;
+// compiles to: el.variant = 'primary'; el.disabled = true;</code></pre>
+
+                <p>
+                    Custom-element scripts load asynchronously. If the consumer's render happens before your class is defined, the element is still the generic <code>HTMLElement</code> fallback. JS happily sets <code>el.variant = 'primary'</code> as an instance own-property. Your class then defines, upgrades the element, and here's the issue — the own-property <em>shadows</em> the prototype setter. Your <code>set variant(v)</code> never runs. The value sits there, ignored.
+                </p>
+
+                <p>
+                    The <a href="https://web.dev/articles/custom-elements-best-practices#make_properties_lazy" target="_blank" rel="noopener">workaround</a> lives in every custom-element library's base class. For each property, on first upgrade, snapshot the own-value, delete the own-property, then re-assign — routing the value through the setter this time:
+                </p>
+
+<pre><code class="language-ts">// A shared base class (simplified)
+protected upgradeProperty(prop: string): void {
+  if (Object.hasOwn(this, prop)) {
+    const value = (this as Record&lt;string, unknown&gt;)[prop];
+    delete (this as Record&lt;string, unknown&gt;)[prop];
+    (this as Record&lt;string, unknown&gt;)[prop] = value;
+  }
+}
+
+// A concrete component — e.g. a button
+connectedCallback() {
+  this.upgradeProperty('variant');
+  this.upgradeProperty('disabled');
+  if (!this.hasAttribute('variant')) this.variant = 'primary';
+}</code></pre>
+
+                <p>
+                    Two details that save future pain. Guard every default with <code>hasAttribute</code> — you don't want <code>connectedCallback</code> to clobber a value the consumer already set. And do it for every declared property; the three-line cost per property is the difference between "works in React" and "silently ignores half the API."
+                </p>
+
+                <p class="callout">
+                    <strong>The pattern to steal:</strong> if you're writing a library, every public property needs <code>upgradeProperty</code> + a <code>hasAttribute</code>-guarded default. If you're writing an app, skip it — you control the upgrade order.
+                </p>
+
+                <!-- ============== Section 3 ============== -->
+                <h2 class="post-section-title">Shadow Meets the World</h2>
+
+
+                <h3 class="lesson-title"><span class="lesson-num">07</span> <code>view-transition-name</code> inside a shadow stylesheet → persistent nav chrome</h3>
+
+                <p>
+                    In 2026, <code>view-transition-name</code> declared inside a shadow stylesheet is captured by the document-level view transition. That used to require lifting the nav out of the shadow DOM or naming elements only in light DOM, which was a real architectural constraint for anyone doing component-heavy work. No longer.
+                </p>
+
+                <p>
+                    A common layout pattern: a top-level wrapper component holds the navigation, a main content slot, and the footer, all inside its shadow DOM. To make the nav feel persistent across page navigations, give it a transition name from inside its own shadow stylesheet:
+                </p>
+
+<pre><code class="language-css">/* inside the navigation component's shadow stylesheet */
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  view-transition-name: site-nav;
+}
+
+/* inside the layout component's shadow stylesheet */
+footer {
+  view-transition-name: site-footer;
+}</code></pre>
+
+                <p>
+                    Then, in a document-level (light-DOM) stylesheet, zero out the animation for those groups so the snapshot is swapped in a single frame rather than cross-faded:
+                </p>
+
+<pre><code class="language-css">/* light-DOM stylesheet — not inside any shadow root */
+::view-transition-group(site-nav),
+::view-transition-group(site-footer) {
+  animation-duration: 0s;
+}</code></pre>
+
+                <p>
+                    The result reads as "the nav never moved." The old snapshot is replaced by the new in a single frame, while everything else — the unnamed <code>root</code> group that everything without its own transition name falls into — crossfades at the browser's default view-transition pace. The active-link indicator swap feels intentional rather than a half-fade through an in-between state.
+                </p>
+
+                <p>
+                    One caveat. <code>::view-transition-*</code> pseudo-elements live on the root document's view-transition pseudo-tree. They have to be declared in a document-level stylesheet, not inside a shadow root. <code>view-transition-name</code> itself can be set anywhere; the <code>::view-transition-group</code> / <code>::view-transition-old</code> / <code>::view-transition-new</code> pseudos are light-DOM only.
+                </p>
+
+                <h3 class="lesson-title"><span class="lesson-num">08</span> Shadow-DOM <code>&lt;button type="submit"&gt;</code> doesn't submit — make the element form-associated</h3>
+
+                <p>
+                    Imagine a button component. Internally it renders <code>&lt;button part="base" type="submit"&gt;</code> inside its shadow root. Drop the host inside a native <code>&lt;form&gt;</code>, click it: nothing happens.
+                </p>
+
+                <p>
+                    The reason is shadow-DOM membership. Form-control association walks the tree to find the enclosing form, but it walks through the regular tree — it doesn't pierce shadow boundaries. The real submit button lives in the host's shadow root, not in the form's light-DOM tree, so from the form's perspective it isn't a submitter.
+                </p>
+
+                <p>
+                    The fix is to make the element form-associated. Two lines of boilerplate — a static flag plus a call to <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/attachInternals" target="_blank" rel="noopener">attachInternals()</a> — opt you in:
+                </p>
+
+<pre><code class="language-ts">export class XButton extends HTMLElement {
+  static formAssociated = true;
+  #internals: ElementInternals;
+
+  constructor() {
+    super();
+    this.#internals = this.attachInternals();
+  }
+}</code></pre>
+
+                <p>
+                    <code>static formAssociated = true</code> flips the switch; <code>attachInternals()</code> — only callable on form-associated elements — returns an <code>ElementInternals</code> object whose most useful property is <code>this.#internals.form</code>. That's the owning form, resolved across the shadow boundary for free.
+                </p>
+
+                <p>
+                    For submission, call <code>form.requestSubmit()</code>, not <code>form.submit()</code>. The former runs constraint validation and fires the <code>submit</code> event (which your consumer is almost certainly listening for); the latter skips both. The slightly subtle part is matching native <code>&lt;button&gt;</code> submitter semantics: a native submitter contributes its <code>name</code>/<code>value</code> pair to the submitted <code>FormData</code> only when <em>it</em> is the active submitter. To replicate that, set the form value transiently, submit, then clear it:
+                </p>
+
+<pre><code class="language-ts">#handleClick(event: Event): void {
+  if (this.type !== 'submit') return;
+  const form = this.#internals.form;
+  if (!form) return;
+
+  const hasEntry = Boolean(this.name);
+  if (hasEntry) this.#internals.setFormValue(this.value);
+  form.requestSubmit();
+  if (hasEntry) this.#internals.setFormValue(null);
+}</code></pre>
+
+                <p>
+                    For free you also pick up the rest of the form lifecycle. <code>formDisabledCallback(disabled)</code> fires when the element lands inside a <code>&lt;fieldset disabled&gt;</code>, so the button's internal ARIA and styling can sync without manual listeners. <code>formResetCallback()</code> fires on <code>form.reset()</code>. <code>formAssociatedCallback(form)</code> fires when the element is first inserted into a form. Constraint validation hooks cleanly into <code>setValidity</code>, <code>checkValidity</code>, <code>reportValidity</code>. That's a lot of behaviour for a class-level flag and one call in the constructor.
+                </p>
+
+                <p class="callout">
+                    <strong>The pattern to steal:</strong> if your element behaves like a native form control — button, input, checkbox, radio, select — make it form-associated from the start. The spec does the heavy lifting; you inherit the whole form lifecycle for the cost of two lines of boilerplate.
+                </p>
+
+                <h3 class="lesson-title"><span class="lesson-num">09</span> Outside-click detection needs <code>composedPath()</code>, not <code>event.target</code></h3>
+
+                <p>
+                    Popovers, tooltips, dropdowns, command palettes — anything that closes on outside click — need to answer "was this click inside me?" The idiomatic reach is <code>!this.contains(event.target)</code>. For a light-DOM component it's exactly right. For a shadow-DOM component it's brittle — it happens to give the right answer for simple cases, but by accident rather than by design.
+                </p>
+
+                <p>
+                    Here's the accident. When a click originates inside a shadow root, the event retargets at the boundary as it bubbles up. By the time a <code>document</code>-level listener sees it, <code>event.target</code> has been rewritten to the shadow host — not the actual element that was clicked. So <code>this.contains(event.target)</code> reduces to <code>this.contains(this)</code>, which is <code>true</code> (<code>Node.contains</code> is inclusive of self). The inside click is correctly ignored, but you're leaning on retargeting's side-effect to answer a question the spec gives you a proper API for. The idiom falls over the moment you need to know <em>which</em> internal element was clicked, or you're dealing with nested custom elements, or any part of the tree uses a closed shadow root.
+                </p>
+
+                <p>
+                    The spec's answer is <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/composedPath" target="_blank" rel="noopener">composedPath()</a>. It returns the full original event path, including nodes on the other side of shadow boundaries, before retargeting happened:
+                </p>
+
+<pre><code class="language-ts">#handleDocumentClick(event: Event): void {
+  if (!this.open) return;
+  const path = event.composedPath();
+  if (path.includes(this)) return;  // click was somewhere inside us
+  this.hide();
+}</code></pre>
+
+                <p>
+                    <code>path.includes(this)</code> tells you the truth. Retargeting doesn't affect <code>composedPath</code>. One gotcha worth knowing: <code>composedPath()</code> returns an empty array once the event has finished dispatching. Call it synchronously in the handler, never from a deferred callback.
+                </p>
+
+                <h3 class="lesson-title"><span class="lesson-num">10</span> Cross-shadow radio groups — walk the scope chain, don't reach for <code>document</code></h3>
+
+                <p>
+                    Native <code>&lt;input type="radio" name="x"&gt;</code> groups via the <code>name</code> attribute, scoped automatically to the enclosing form (or the document if there's no form). For custom-element radios, each instance is its own element with its own shadow root, and "uncheck my siblings when I check" has no built-in resolution. You have to walk the DOM yourself.
+                </p>
+
+                <p>
+                    The wrong answer is <code>document.querySelectorAll('x-radio[name="x"]')</code>. It works right up until two radio groups with the same name exist on the same page — in separate forms, or nested inside different component hosts. Then checking one radio unchecks all of them, which is the opposite of what radios are supposed to do.
+                </p>
+
+                <p>
+                    The right answer is to walk the scope graph in descending specificity. <code>ElementInternals.form</code> first, then the radio's <code>getRootNode()</code> (which returns either the document or the enclosing shadow root), then <code>document</code> as a last resort:
+                </p>
+
+<pre><code class="language-ts">#getGroupMembers(): XRadio[] {
+  const scope: ParentNode =
+    this.#internals.form
+      ?? (this.getRootNode() as Document | ShadowRoot | null)
+      ?? document;
+  const selector = `x-radio[name="${CSS.escape(this.name)}"]`;
+  return Array.from(scope.querySelectorAll&lt;XRadio&gt;(selector));
+}</code></pre>
+
+                <p>
+                    Two implementation details that save future pain. <code>CSS.escape(this.name)</code> is non-optional — user-provided names can contain brackets, quotes, dots, any character that would break the selector. And queue the sibling-tabindex pass with <code>queueMicrotask</code> in <code>connectedCallback</code>. Siblings in the same group may not have upgraded yet when the first radio connects; a synchronous query would miss them.
+                </p>
+
+                <p>
+                    The pattern generalises. Anything that needs to coordinate across sibling custom elements — tabs, accordions, segmented controls, radio groups — should walk the same <code>form → rootNode → document</code> chain before reaching for <code>document</code> directly.
+                </p>
+
+                <!-- ============== Closing ============== -->
+                <h2 class="post-section-title">Wrapping up</h2>
+
+                <p>
+                    In 2022 I'd have reached for Lit for any custom-element work. With <code>adoptedStyleSheets</code>, <code>ElementInternals</code>, cross-document View Transitions, async <code>pagereveal</code>, and shadow DOM finally playing nicely with document-level pseudo-elements — vanilla is legitimately enough for a whole design system, a whole portfolio, and probably a whole product.
+                </p>
+
+                <p>
+                    Ekko is on GitHub at <a href="https://github.com/Mellow254/Ekko" target="_blank" rel="noopener">Mellow254/Ekko</a>. This site is at <a href="https://github.com/MasherJames/jamesmacharia.dev" target="_blank" rel="noopener">MasherJames/jamesmacharia.dev</a>. Both are vanilla and public.
+                </p>
+
+                <p>
+                    If you're deciding right now whether to reach for a framework: write three vanilla custom elements first. If the platform holds up — and in 2026 it will — you've just saved yourself a build-dependency and a framework migration.
+                </p>
+
+            </div>
+
+            <footer class="post-footer">
+                <a href="/writing/" class="post-back">&larr; All writing</a>
+            </footer>
+
+        </article>
+    </jm-layout>
+</body>
+</html>

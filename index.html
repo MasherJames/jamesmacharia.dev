@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="James Macharia — Fullstack engineer building design systems, AI platforms, and Sauti. Based in Nairobi, Kenya." />
+    <link rel="icon" type="image/jpeg" href="/images/Profile.jpg" />
+    <title>James Macharia — Fullstack Engineer, Language AI Builder, Student Pilot</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="/scripts/view-transitions.js"></script>
+    <script type="module" src="/pages/home/main.ts"></script>
+</head>
+<body>
+    <jm-layout>
+        <div class="page home-page">
+
+            <!-- Hero -->
+            <section class="hero">
+                <jm-status-dot available label="Open to consulting and interesting conversations"></jm-status-dot>
+                <h1 class="hero-headline">
+                    <jm-highlighted-text
+                        heading
+                        text="James Macharia — Fullstack engineer, language AI builder, student pilot."
+                        highlight="Fullstack,engineer,AI,pilot"
+                    ></jm-highlighted-text>
+                </h1>
+                <p class="hero-sub">
+                    I build design systems, AI platforms, and I'm creating Sauti — a platform to produce ads in Kenya's 42+ indigenous languages. When I'm not coding, I'm learning how to fly.
+                </p>
+                <div class="hero-ctas">
+                    <jm-cursor-follow max-transform="2">
+                        <a href="/about/"><jm-button label="See my work" primary size="large"></jm-button></a>
+                    </jm-cursor-follow>
+                    <jm-cursor-follow max-transform="2">
+                        <a href="#writing" class="text-link">Read my writing <span class="arrow">&rarr;</span></a>
+                    </jm-cursor-follow>
+                </div>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <!-- Identity Pillars -->
+            <section class="pillars">
+                <jm-identity-pillar
+                    pillars='[
+                        {"icon": "&#9881;", "title": "Engineering & AI", "description": "Building data platforms and LLM systems. Currently shipping Sauti — vernacular ad production for Africa&#39;s multilingual markets.", "color": "secondary-500"},
+                        {"icon": "&#9992;", "title": "Aviation", "description": "PPL student. Flying is where math meets instinct. Checklists, situational awareness, and decision-making under uncertainty.", "color": "accent1-500"},
+                        {"icon": "&#8721;", "title": "Mathematics", "description": "BSc in Mathematics & Computer Science. I think in proofs, build in types. Drawn to formal reasoning, type theory, and proof assistants.", "color": "pastel-lilac"}
+                    ]'
+                ></jm-identity-pillar>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <!-- Work Experience Carousel -->
+            <section class="experience-carousel">
+                <jm-stacked-carousel
+                    intro-title="Where I've been building"
+                    intro-subtitle="From early-stage startups to AI data platforms — each role sharpened a different edge. Here's the work that got me here."
+                    cards='[
+                        {"company": "Sauti", "title": "Founder — Vernacular Ad Production", "description": "Building a platform to produce radio and TV ads in Kenya&#39;s 42+ indigenous languages. Leading ML architecture with XTTS v2 for voice synthesis and NLLB-200 for translation.", "tags": ["Python", "XTTS v2", "NLLB-200", "TypeScript", "React"], "accentColor": "#00cb00", "gradientStart": "#00cb00", "gradientEnd": "#39ff14"},
+                        {"company": "Pareto", "title": "Software Engineer — AI Data Platform", "description": "Building enterprise-scale data labeling and evaluation systems for AI training. Design system, Backend services, evaluation pipelines, and data infrastructure that powers model improvement.", "tags": ["Django", "Python", "PostgreSQL", "React", "Design Systems","AWS"], "accentColor": "#de3cff", "gradientStart": "#de3cff", "gradientEnd": "#b0b0fe"},
+                        {"company": "360dialog", "title": "Software Engineer — Design Systems", "description": "Built and maintained design system components for WhatsApp Performance Marketing Solutions. Focused on consistency, reusability, and developer experience.", "tags": ["React", "TypeScript", "Design Systems", "Storybook"], "accentColor": "#b0b0fe", "gradientStart": "#b0b0fe", "gradientEnd": "#de3cff"},
+                        {"company": "Kakbima", "title": "Software Engineer — Insurance Tech", "description": "Built frontend interfaces for insurance technology products. First major role where I learned to ship production code and work within a team at pace.", "tags": ["React", "JavaScript", "CSS", "GraphQL APIs"], "accentColor": "#d3fd74", "gradientStart": "#d3fd74", "gradientEnd": "#00cb00"}
+                    ]'
+                ></jm-stacked-carousel>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <!-- Featured Projects -->
+            <section class="projects" id="projects">
+                <jm-section-reveal>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="project-grid">
+                        <jm-project-card
+                            name="Sauti"
+                            description="A platform to produce radio and TV ads in Kenya's 42+ indigenous languages. Africa-first, ML-powered vernacular ad production."
+                            tags="Python,XTTS v2,NLLB-200,TypeScript,React"
+                        ></jm-project-card>
+                        <jm-project-card
+                            name="Ekko"
+                            description="A vanilla Web Components UI library. Zero dependencies, Shadow DOM, design tokens. Built from scratch for learning and reuse."
+                            tags="TypeScript,Web Components,CSS,Vite"
+                            href="https://github.com/Mellow254/Ekko"
+                        ></jm-project-card>
+                        <jm-project-card
+                            name="MellowCSS"
+                            description="A SASS-based utility CSS framework that generates customizable utility classes from configuration maps."
+                            tags="SASS,CSS,Utility Framework"
+                            href="https://github.com/Mellow254/Mellow-CSS"
+                        ></jm-project-card>
+                        <jm-project-card
+                            name="jamesmacharia.dev"
+                            description="This portfolio. Custom Web Components, Vite MPA, Cloudflare Pages. No framework — just the platform."
+                            tags="TypeScript,Web Components,Vite,Cloudflare"
+                            href="https://github.com/MasherJames/jamesmacharia.dev"
+                        ></jm-project-card>
+                    </div>
+                </jm-section-reveal>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <!-- Latest Writing -->
+            <section class="writing" id="writing">
+                <jm-section-reveal>
+                    <h2 class="section-title">Latest Writing</h2>
+                    <div class="writing-list">
+                        <a href="/writing/web-components-in-2026/" class="writing-teaser">
+                            <div class="writing-meta">
+                                <time>April 2026</time>
+                                <span class="reading-time">12 min read</span>
+                            </div>
+                            <h3 class="writing-title">Web Components in 2026: What I Learned Building a Component Library and a Portfolio</h3>
+                            <p class="writing-excerpt">Ten lessons from a year of vanilla custom elements — the mental model of shadow DOM, how upgrade timing breaks your day, and why the platform is finally enough.</p>
+                        </a>
+                    </div>
+                    <a href="/writing/" class="text-link section-link">Read all writing <span class="arrow">&rarr;</span></a>
+                </jm-section-reveal>
+            </section>
+
+        </div>
+    </jm-layout>
+</body>
+</html>

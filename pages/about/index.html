@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="About James Macharia — Fullstack engineer, Sauti founder, student pilot, and mathematics graduate based in Nairobi." />
+    <link rel="icon" type="image/jpeg" href="/images/Profile.jpg" />
+    <title>James Macharia — About</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="/scripts/view-transitions.js"></script>
+    <script type="module" src="/pages/about/main.ts"></script>
+</head>
+<body>
+    <jm-layout>
+        <div class="page about-page">
+
+            <!-- Intro -->
+            <section class="about-intro">
+                <jm-highlighted-text
+                    heading
+                    text="I'm James — a fullstack software engineer based in Nairobi, building things that matter."
+                    highlight="James,Nairobi,matter"
+                ></jm-highlighted-text>
+                <div class="intro-short">
+                    <p>
+                        Over five years shipping <strong>backend systems</strong>, <strong>APIs</strong>, and <strong>data platforms</strong> across enterprise AI, insurance tech and whatsApp performance marketing solutions. On the frontend I lean into <strong>design systems</strong>. I'm also the <strong>founder of Sauti</strong>, a platform producing radio and TV ads in Kenya's 42+ indigenous languages.
+                    </p>
+                    <p>
+                        Outside of work I'm a <strong>student pilot</strong> training for my <strong>PPL</strong>, and I hold a <strong>BSc in Mathematics and Computer Science</strong>. Flying and formal proofs reward the same thing — <strong>precision</strong>, calm decisions, and knowing what's actually true.
+                    </p>
+                </div>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <!-- Experience -->
+            <section class="about-experience">
+                <jm-section-reveal>
+                    <h2>Experience</h2>
+                    <jm-timeline-strip items='[
+                        {
+                            "period": " Jan 2026 — Present",
+                            "role": "Founder",
+                            "company": "Sauti",
+                            "description": "Building a platform to produce radio and TV ads in Kenya&#39;s 42+ indigenous languages. Leading ML architecture with XTTS v2 for voice synthesis and NLLB-200 for translation.",
+                            "current": true
+                        },
+                        {
+                            "period": "Jul 2023 — Feb 2026",
+                            "role": "Software Engineer",
+                            "company": "Pareto",
+                            "description": "Evaluation pipelines, data labeling infrastructure, and full-stack services that power AI training at scale. Django, PostgreSQL, and React on the product side; design-system consolidation across internal tooling."
+                        },
+                        {
+                            "period": "Jan 2023",
+                            "role": "Software Engineer",
+                            "company": "360dialog",
+                            "description": "Building design-system components and a WhatsApp Performance Marketing platform. Focused performance tracking."
+                        },
+                        {
+                            "period": "May 2021 — Jan 2023",
+                            "role": "Software Engineer",
+                            "company": "Pareto",
+                            "description": "First tenure at Pareto. Frontend-heavy — shipped production interfaces for evaluation tooling and internal dashboards, which grew into the full data platform."
+                        },
+                        {
+                            "period": "Aug 2019 — May 2021",
+                            "role": "Software Engineer",
+                            "company": "Kakbima",
+                            "description": "Frontend interfaces for insurance technology products. First serious role — learned to ship production code, work within a team, and debugging under pressure."
+                        },
+                        {
+                            "period": "May 2019 — Aug 2019",
+                            "role": "Software Engineer Intern",
+                            "company": "Legibra",
+                            "description": "Internship while still at the university. Built an e-commerce platform for selling eyeglasses."
+                        }
+                    ]'></jm-timeline-strip>
+                </jm-section-reveal>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <!-- Tech skills -->
+            <section class="about-skills">
+                <jm-section-reveal>
+                    <h2>Tech skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-group">
+                            <h3 class="skill-group-title">Languages</h3>
+                            <ul class="skill-tags">
+                                <li>Python</li>
+                                <li>TypeScript</li>
+                                <li>JavaScript</li>
+                                <li>SQL</li>
+                            </ul>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="skill-group-title">Frontend</h3>
+                            <ul class="skill-tags">
+                                <li>React</li>
+                                <li>Vue</li>
+                                <li>Web Components</li>
+                                <li>CSS</li>
+                                <li>Design Systems</li>
+                                <li>Vite</li>
+                            </ul>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="skill-group-title">Backend</h3>
+                            <ul class="skill-tags">
+                                <li>Django</li>
+                                <li>Node.js</li>
+                                <li>PostgreSQL</li>
+                                <li>REST</li>
+                                <li>GraphQL</li>
+                                <li>Celery</li>
+                            </ul>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="skill-group-title">AI / ML</h3>
+                            <ul class="skill-tags">
+                                <li>XTTS v2</li>
+                                <li>NLLB-200</li>
+                                <li>LLM evaluation</li>
+                                <li>RAG systems</li>
+                                <li>Fine-tuning pipelines</li>
+                            </ul>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="skill-group-title">Infrastructure</h3>
+                            <ul class="skill-tags">
+                                <li>AWS</li>
+                                <li>S3 / CloudFront</li>
+                                <li>Cloudflare Pages</li>
+                                <li>Docker</li>
+                                <li>CI/CD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </jm-section-reveal>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <!-- Hobbies -->
+            <section class="about-hobbies">
+                <jm-section-reveal>
+                    <h2>Hobbies</h2>
+                    <div class="hobbies">
+                        <div class="hobby">
+                            <h3>Aviation</h3>
+                            <p>
+                                I'm a student pilot chasing my PPL. Flying teaches situational awareness, checklist discipline, and decision-making under uncertainty — skills that bleed straight back into how I build software.
+                            </p>
+                        </div>
+                        <div class="hobby">
+                            <h3>Mathematics</h3>
+                            <p>
+                                My BSc in Mathematics and Computer Science left me with a soft spot for formal proofs and type theory. I dip into Lean and Agda on weekends, mostly to remind myself what rigor really looks like.
+                            </p>
+                        </div>
+                    </div>
+                </jm-section-reveal>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <!-- Currently -->
+            <section class="about-currently">
+                <jm-section-reveal>
+                    <h2>Currently</h2>
+                    <jm-currently-timeline items='[
+                        {"label": "Building", "title": "Sauti — ML architecture", "description": "XTTS v2 voice synthesis and NLLB-200 translation pipelines for multilingual vernacular ad production at scale.", "color": "secondary-500"},
+                        {"label": "Learning", "title": "Flying + AI/ML + Agda", "description": "PPL training, ML engineering, and formal verification — crosswind landings and type-theoretic proofs, in parallel.", "color": "accent1-500"},
+                        {"label": "Reading", "title": "Systems + ML books", "description": "Designing Data-Intensive Applications by Martin Kleppmann and Designing Machine Learning Systems by Chip Huyen.", "color": "pastel-lilac"}
+                    ]'></jm-currently-timeline>
+                </jm-section-reveal>
+            </section>
+
+        </div>
+    </jm-layout>
+</body>
+</html>

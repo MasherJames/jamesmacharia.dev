@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Services — Backend engineering, frontend design systems, and AI/LLM integration by James Macharia." />
+    <link rel="icon" type="image/jpeg" href="/images/Profile.jpg" />
+    <title>James Macharia — Services</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="/scripts/view-transitions.js"></script>
+    <script type="module" src="/pages/services/main.ts"></script>
+</head>
+<body>
+    <jm-layout>
+        <div class="page services-page">
+
+            <section class="services-hero">
+                <jm-highlighted-text
+                    heading
+                    text="What I can do for you."
+                    highlight="you"
+                ></jm-highlighted-text>
+                <p class="services-sub">
+                    I work with teams and founders who need someone who can think across the stack. Here's what I bring to the table — not a price list, but a clear picture of how I can help.
+                </p>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <section class="service-list">
+                <jm-section-reveal>
+                    <div class="service-item">
+                        <div class="service-number">01</div>
+                        <div class="service-content">
+                            <h3>Backend & API Engineering</h3>
+                            <p>
+                                Designing and building scalable backend services, REST and GraphQL APIs, data pipelines. Django, Python, Node. Experience with PostgreSQL, MongoDB, S3/CloudFront, Celery, and the infrastructure that keeps production systems reliable. I've built systems that handle evaluation pipelines, data labeling workflows, and real-time processing at scale.
+                            </p>
+                        </div>
+                    </div>
+                </jm-section-reveal>
+
+                <jm-section-reveal>
+                    <div class="service-item">
+                        <div class="service-number">02</div>
+                        <div class="service-content">
+                            <h3>Frontend & Design Systems</h3>
+                            <p>
+                                React, Vue, Web Components, TypeScript, CSS, build system tools, design systems architecture. I'm building Ekko — a vanilla Web Components library. I care about making frontend feel considered and consistent. Not just components, but the tokens, patterns, and documentation that let a team move fast without things falling apart.
+                            </p>
+                        </div>
+                    </div>
+                </jm-section-reveal>
+
+                <jm-section-reveal>
+                    <div class="service-item">
+                        <div class="service-number">03</div>
+                        <div class="service-content">
+                            <h3>AI / LLM Integration & Evaluation</h3>
+                            <p>
+                                Building systems that use LLMs in production — evaluation pipelines, fine-tuning workflows, RAG systems, data platforms for AI training. This isn't theoretical. It's hands-on experience from building Sauti, where I'm designing the ML architecture around XTTS v2 voice synthesis and NLLB-200 translation for vernacular ad production. If you're shipping AI, I can help you ship it well.
+                            </p>
+                        </div>
+                    </div>
+                </jm-section-reveal>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <section class="services-qualifying">
+                <jm-section-reveal>
+                    <h2>Is this a fit?</h2>
+                    <div class="qualifying-prose">
+                        <p>
+                            I work best with teams that value craft and clarity. If you're building something real — not just assembling components but actually solving a problem — we'll work well together.
+                        </p>
+                        <p>
+                            I'm especially interested in projects at the intersection of AI and product, African tech, and anything that involves making complex systems understandable.
+                        </p>
+                        <p>
+                            If this sounds like your kind of work, <jm-cursor-follow inline max-transform="2"><a href="/contact/">let's talk</a></jm-cursor-follow>.
+                        </p>
+                    </div>
+                </jm-section-reveal>
+            </section>
+
+        </div>
+    </jm-layout>
+</body>
+</html>

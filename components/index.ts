@@ -1,6 +1,15 @@
 export { JmButton } from './button';
+export { JmCurrentlyTimeline } from './currently-timeline';
 export { JmCursorFollow } from './cursor-follow';
-export { JmDraggableElement } from './draggable-element';
-export { JmRotator, RotationScrollTarget } from './rotator';
-export { JmSvg } from './svg';
+export { JmCustomCursor } from './custom-cursor';
+export { JmGradientDivider } from './gradient-divider';
+export { JmHighlightedText } from './highlighted-text';
+export { JmIdentityPillar } from './identity-pillar';
+export { JmLayout } from './layout';
+export { JmNavigation } from './navigation';
+export { JmProjectCard } from './project-card';
+export { JmSectionReveal } from './section-reveal';
+export { JmStackedCarousel } from './stacked-carousel';
+export { JmStatusDot } from './status-dot';
 export { JmThemeSwitcher } from './theme-switcher';
+export { JmTimelineStrip } from './timeline-strip';

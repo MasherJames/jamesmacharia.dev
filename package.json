@@ -11,13 +11,16 @@
     "lint:fix": "biome check --fix .",
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit",
+    "analyze": "cem analyze --globs \"components/**/*.ts\"",
     "prepare": "husky"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.10",
+    "@custom-elements-manifest/analyzer": "^0.11.0",
     "@types/node": "^25.5.2",
     "husky": "^9.1.7",
     "typescript": "^6.0.2",
     "vite": "^8.0.7"
-  }
+  },
+  "customElements": "custom-elements.json"
 }

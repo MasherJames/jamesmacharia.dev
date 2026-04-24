@@ -1,19 +1,17 @@
+import { JmBase } from '../base';
 import css from './index.css?inline';
 
 const styles = new CSSStyleSheet();
 styles.replaceSync(css);
 
-export class JmCursorFollow extends HTMLElement {
+export class JmCursorFollow extends JmBase {
   static observedAttributes = ['cursor', 'max-transform'];
 
-  private shadow: ShadowRoot;
   private midPoints = { x: 0, y: 0 };
   private rateOfChange = { x: 0, y: 0 };
 
   constructor() {
-    super();
-    this.shadow = this.attachShadow({ mode: 'open' });
-    this.shadow.adoptedStyleSheets = [styles];
+    super(styles);
   }
 
   connectedCallback() {

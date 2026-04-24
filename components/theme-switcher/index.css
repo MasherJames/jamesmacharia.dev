@@ -10,18 +10,26 @@
   cursor: pointer;
   background: none;
   border: 0;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.themeswitcher:hover {
+  color: var(--text);
 }
 
 .themeswitcher svg {
   position: absolute;
-  transition: 1s ease;
-  rotate: 0deg;
-  scale: 0;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
 }
 
 .themeswitcher svg.active {
-  rotate: 360deg;
-  scale: 1.2;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }

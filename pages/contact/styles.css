@@ -1,0 +1,94 @@
+/* Contact Page */
+
+.contact-page {
+  padding-top: 4rem;
+}
+
+.contact-hero {
+  margin-bottom: 2.5rem;
+}
+
+.contact-hero jm-highlighted-text {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.contact-sub {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 540px;
+}
+
+/* Contact Grid */
+
+.contact-links-section {
+  margin-block: 2.5rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--surface-1);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--accent1-500);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--accent1-500) 8%, transparent);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent1-500) 10%, transparent);
+  color: var(--accent1-500);
+  font-weight: 700;
+}
+
+.contact-type {
+  font-family: "Agrandir", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.contact-value {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-page {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

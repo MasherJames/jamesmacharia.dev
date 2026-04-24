@@ -1,0 +1,178 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  view-transition-name: site-nav;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: var(--accent1-500);
+}
+
+.logo-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 0 transparent;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.nav-logo:hover .logo-image {
+  box-shadow: 0 0 0 2px var(--accent1-500);
+}
+
+.logo-name {
+  font-family: "Agrandir", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: -0.02em;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover .logo-name {
+  transform: translateX(4px);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 0.25rem 0;
+}
+
+.nav-link a:hover {
+  color: var(--text);
+}
+
+/* SVG circle draw on hover */
+.nav-link svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 28px);
+  height: 44px;
+  pointer-events: none;
+}
+
+.nav-link svg ellipse {
+  fill: none;
+  stroke: var(--accent1-500);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  opacity: 0;
+  transition:
+    stroke-dashoffset 0.4s cubic-bezier(0.645, 0.045, 0.355, 1),
+    opacity 0.2s ease;
+}
+
+.nav-link:hover svg ellipse {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+/* Active page - wavy underline */
+.nav-link.active a {
+  color: var(--text);
+}
+
+.nav-link.active a::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: 8px;
+  background: var(--text);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'%3E%3Cpath d='M2 5 C10 1, 18 1, 26 5 S42 9, 50 5 S66 1, 74 5 S90 9, 98 5 S114 1, 118 4' stroke='black' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'%3E%3Cpath d='M2 5 C10 1, 18 1, 26 5 S42 9, 50 5 S66 1, 74 5 S90 9, 98 5 S114 1, 118 4' stroke='black' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  animation: wavy-in 0.3s ease-out forwards;
+}
+
+@keyframes wavy-in {
+  from {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+/* Hide wavy underline on hover (circle takes over) */
+.nav-link.active:hover a::after {
+  opacity: 0;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-links {
+    gap: 1.25rem;
+  }
+
+  .nav-link a {
+    font-size: 0.75rem;
+  }
+
+  .nav-link svg {
+    display: none;
+  }
+}

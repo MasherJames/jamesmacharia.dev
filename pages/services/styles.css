@@ -1,0 +1,129 @@
+/* Services Page */
+
+.services-page {
+  padding-top: 4rem;
+}
+
+.services-hero {
+  margin-bottom: 2.5rem;
+}
+
+.services-hero jm-highlighted-text {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.services-sub {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 600px;
+}
+
+/* Service List */
+.service-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: border-color 0.3s ease;
+}
+
+.service-item:hover {
+  border-color: var(--border-default);
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-number {
+  font-family: "Agrandir", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--border-default);
+  line-height: 1;
+  transition: color 0.4s ease;
+}
+
+.service-item:hover .service-number {
+  color: var(--accent1-500);
+}
+
+.service-content h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.service-content p {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+  max-width: 740px;
+}
+
+/* Qualifying */
+
+.services-qualifying {
+  margin-block: 2.5rem;
+}
+
+.services-qualifying h2 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.qualifying-prose {
+  max-width: 740px;
+}
+
+.qualifying-prose p {
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.qualifying-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.qualifying-prose a {
+  color: var(--accent1-500);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s ease;
+}
+
+.qualifying-prose a:hover {
+  color: var(--accent1-300);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-page {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service-number {
+    font-size: 1.5rem;
+  }
+}

@@ -33,12 +33,12 @@ html.light {
     --primary-400: #454440;
     --primary-500: #54514d;
     --primary-600: #6a6762;
-    --primary-700: #85827c;
+    --primary-700: #807d78;
     --primary-800: #a8a4a0;
 
     --secondary-100: #0c5b11;
     --secondary-200: #086c0c;
-    --secondary-300: #028907;
+    --secondary-300: #047a0a;
     --secondary-400: #00b505;
     --secondary-500: #00cb00;
     --secondary-600: #24fb20;
@@ -48,23 +48,47 @@ html.light {
 
     --accent1-100: #74117e;
     --accent1-200: #8a0e9a;
-    --accent1-300: #a60ebd;
-    --accent1-400: #c516e3;
-    --accent1-500: #de3cff;
-    --accent1-600: #eb6dff;
-    --accent1-700: #f1a3ff;
-    --accent1-800: #f6ccff;
-    --accent1-900: #fae6ff;
+    --accent1-300: #a010c0;
+    --accent1-400: #b313d0;
+    --accent1-500: #9b11b3;
+    --accent1-600: #c040d8;
+    --accent1-700: #d070e8;
+    --accent1-800: #e4a8f2;
+    --accent1-900: #f3d9fa;
 
-    --bg: var(--primary-800);
+    /* Pastels */
+    --pastel-cream: #f3f0e8;
+    --pastel-lilac: #7b7bc8;
+    --pastel-lime: #5a8f20;
+    --pastel-peach: #c87040;
+
+    /* Surface layers */
+    --surface-0: #f5f3f0;
+    --surface-1: #ffffff;
+    --surface-2: #f0eeeb;
+    --surface-3: #e6e4e0;
+
+    /* Borders */
+    --border-subtle: rgba(27, 26, 24, 0.10);
+    --border-default: rgba(27, 26, 24, 0.18);
+    --border-strong: rgba(27, 26, 24, 0.35);
+
+    /* Gradients */
+    --gradient-start: var(--accent1-400);
+    --gradient-mid: var(--secondary-200);
+    --gradient-end: var(--pastel-lilac);
+
+    --bg: #f5f3f0;
     --text: var(--primary-100);
+    --text-muted: var(--primary-500);
+    --text-subtle: var(--primary-600);
 }
 
 /* Dark theme colors */
 html.dark {
     --primary-100: #1a181f;
-    --primary-200: #6c6a73;
-    --primary-300: #cdcad4;
+    --primary-200: #8a8890;
+    --primary-300: #b5b3ba;
     --primary-400: #e1e0e8;
 
     --secondary-100: #090;
@@ -73,12 +97,36 @@ html.dark {
     --secondary-400: #e1e0e8;
 
     --accent1-100: #bf00ff;
-    --accent1-200: #de3cff;
-    --accent1-300: #fd5eff;
+    --accent1-200: #d040f0;
+    --accent1-300: #e060ff;
     --accent1-400: #e1e0e8;
+
+    /* Pastels (dark variants) */
+    --pastel-cream: #2a2825;
+    --pastel-lilac: #6a6ab0;
+    --pastel-lime: #4a7a20;
+    --pastel-peach: #7a4a28;
+
+    /* Surface layers */
+    --surface-0: var(--primary-100);
+    --surface-1: #222028;
+    --surface-2: #2a2830;
+    --surface-3: #322f3a;
+
+    /* Borders */
+    --border-subtle: rgba(225, 224, 232, 0.08);
+    --border-default: rgba(225, 224, 232, 0.15);
+    --border-strong: rgba(225, 224, 232, 0.28);
+
+    /* Gradients */
+    --gradient-start: var(--accent1-200);
+    --gradient-mid: var(--secondary-200);
+    --gradient-end: var(--pastel-lilac);
 
     --bg: var(--primary-100);
     --text: var(--primary-400);
+    --text-muted: var(--primary-200);
+    --text-subtle: var(--primary-300);
 }
 
 *,
@@ -90,12 +138,62 @@ html.dark {
 }
 
 html {
-    font-family: 'Agrandir', sans-serif;
+    font-family: 'Red Hat Mono', monospace;
     font-weight: 400;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--primary-600) var(--surface-1);
+    scrollbar-width: thin;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Agrandir', sans-serif;
 }
 
 body {
     background-color: var(--bg);
     color: var(--text);
     min-height: 100vh;
+    line-height: 1.6;
+}
+
+::selection {
+    background: var(--accent1-500);
+    color: white;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+:not(:defined) {
+    visibility: hidden;
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(site-nav),
+::view-transition-group(site-footer) {
+    animation-duration: 0s;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 220ms;
+    animation-timing-function: ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
 }

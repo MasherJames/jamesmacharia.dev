@@ -1,17 +1,14 @@
+import { JmBase } from '../base';
 import css from './index.css?inline';
 
 const styles = new CSSStyleSheet();
 styles.replaceSync(css);
 
-export class JmButton extends HTMLElement {
+export class JmButton extends JmBase {
   static observedAttributes = ['label', 'primary', 'size', 'background-color'];
 
-  private shadow: ShadowRoot;
-
   constructor() {
-    super();
-    this.shadow = this.attachShadow({ mode: 'open' });
-    this.shadow.adoptedStyleSheets = [styles];
+    super(styles);
   }
 
   connectedCallback() {

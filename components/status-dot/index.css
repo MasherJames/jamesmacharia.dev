@@ -1,0 +1,39 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary-600);
+  flex-shrink: 0;
+}
+
+.dot.active {
+  background-color: var(--secondary-200);
+  box-shadow: 0 0 0 0 var(--secondary-200);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--secondary-200) 40%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--secondary-200) 0%, transparent);
+  }
+}
+
+.label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}

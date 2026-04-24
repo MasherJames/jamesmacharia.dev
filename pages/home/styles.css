@@ -1,120 +1,159 @@
-.header {
+.home-page {
+  padding-top: 4rem;
+}
+
+/* Hero */
+.hero {
+  margin-bottom: 2.5rem;
+}
+
+.hero jm-status-dot {
+  margin-bottom: 2rem;
+}
+
+.hero-headline {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-ctas {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 2rem 3rem;
-  border-bottom: 1px solid var(--primary-600);
+  gap: 2rem;
 }
 
-.header h1 {
-  font-size: 1.5rem;
-  color: var(--secondary-500);
+.text-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.playground {
-  padding: 2rem 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.section h2 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+.text-link:hover {
   color: var(--accent1-500);
 }
 
-.description {
-  font-family: "Red Hat Mono", monospace;
-  font-size: 0.875rem;
-  color: var(--primary-600);
-  margin-bottom: 1rem;
+.text-link .arrow {
+  transition: transform 0.3s ease;
+  display: inline-block;
 }
 
-.component-row {
+.text-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+/* Project Grid */
+
+.projects {
+  margin-block: 2.5rem;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Writing Section */
+
+.writing {
+  margin-block: 2.5rem;
+}
+
+.writing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.writing-teaser {
+  padding: 1.5rem 2rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--surface-1);
+  transition:
+    border-color 0.3s ease,
+    transform 0.2s ease;
+  cursor: pointer;
+}
+
+.writing-teaser:hover {
+  border-color: var(--border-strong);
+  transform: translateX(4px);
+}
+
+.writing-meta {
   display: flex;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+  font-size: 0.7rem;
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.drag-area {
-  position: relative;
-  height: 250px;
-  border: 1px dashed var(--primary-600);
-  border-radius: 8px;
-  overflow: hidden;
+.reading-time::before {
+  content: "\00B7";
+  margin-right: 1rem;
 }
 
-.drag-box {
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  font-family: "Red Hat Mono", monospace;
-  font-size: 0.875rem;
-  user-select: none;
+.writing-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  line-height: 1.4;
 }
 
-.rebound-box {
-  background-color: var(--secondary-300);
-  color: var(--primary-100);
+.writing-excerpt {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.7;
 }
 
-.free-box {
-  background-color: var(--accent1-400);
-  color: white;
+.section-link {
+  margin-top: 1rem;
 }
 
-.cursor-area {
-  display: flex;
-  gap: 2rem;
+/* Responsive */
+@media (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.follow-box {
-  padding: 2rem 3rem;
-  background-color: var(--secondary-200);
-  color: var(--primary-100);
-  border-radius: 12px;
-  font-family: "Red Hat Mono", monospace;
-  font-size: 0.875rem;
-  text-align: center;
-  user-select: none;
-}
+@media (max-width: 768px) {
+  .home-page {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
 
-.follow-box.accent {
-  background-color: var(--accent1-300);
-  color: white;
-}
-
-.rotator-demo {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.scroll-container {
-  width: 300px;
-  height: 150px;
-  overflow-y: scroll;
-  border: 1px solid var(--primary-600);
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-.scroll-content {
-  height: 800px;
-  font-family: "Red Hat Mono", monospace;
-  font-size: 0.875rem;
-  color: var(--primary-600);
-}
-
-.rotator-box {
-  width: 6rem;
-  height: 6rem;
-  background-color: var(--accent1-500);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: white;
+  .hero-ctas {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }

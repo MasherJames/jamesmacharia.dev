@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Writing by James Macharia — essays and technical deep-dives on web components, AI platforms, and things I've built." />
+    <link rel="icon" type="image/jpeg" href="/images/Profile.jpg" />
+    <title>James Macharia — Writing</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="/scripts/view-transitions.js"></script>
+    <script type="module" src="/pages/writing/main.ts"></script>
+</head>
+<body>
+    <jm-layout>
+        <div class="page writing-page">
+
+            <section class="writing-hero">
+                <jm-highlighted-text
+                    heading
+                    text="Writing."
+                    highlight="Writing"
+                ></jm-highlighted-text>
+                <p class="writing-sub">
+                    Technical deep-dives and essays on things I've built.
+                </p>
+            </section>
+
+            <jm-gradient-divider></jm-gradient-divider>
+
+            <section class="writing-list-section">
+                <jm-section-reveal>
+                    <ul class="writing-list">
+                        <li>
+                            <a href="/writing/web-components-in-2026/" class="writing-card">
+                                <div class="writing-meta">
+                                    <time>April 2026</time>
+                                    <span class="reading-time">12 min read</span>
+                                </div>
+                                <h2 class="writing-card-title">Web Components in 2026: What I Learned Building a Component Library and a Portfolio</h2>
+                                <p class="writing-card-excerpt">
+                                    Ten lessons from a year of vanilla custom elements — the mental model of shadow DOM, how upgrade timing breaks your day, what happens when the boundary meets forms and events, and why the platform is finally enough.
+                                </p>
+                                <span class="writing-card-cta">Read the post <span class="arrow">&rarr;</span></span>
+                            </a>
+                        </li>
+                    </ul>
+                </jm-section-reveal>
+
+            </section>
+
+        </div>
+    </jm-layout>
+</body>
+</html>

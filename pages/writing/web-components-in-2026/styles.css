@@ -1,0 +1,238 @@
+.post-page {
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Header */
+.post-header {
+  margin-bottom: 3rem;
+}
+
+.post-back {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.post-back:hover {
+  color: var(--accent1-500);
+}
+
+.post-meta {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.post-meta .post-dot {
+  color: var(--border-strong);
+}
+
+.post-title jm-highlighted-text {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+/* Body typography */
+.post-body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.post-body p {
+  margin-bottom: 1.25rem;
+}
+
+.post-body .lede {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.post-body a {
+  color: var(--accent1-500);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.post-body a:hover {
+  color: var(--accent1-400);
+}
+
+.post-body em {
+  color: var(--text);
+  font-style: italic;
+}
+
+.post-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Section + lesson headings */
+.post-section-title {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 3.5rem;
+  margin-bottom: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.post-section-title .wip {
+  font-family: "Red Hat Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--accent1-500);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.lesson-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.35;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.85rem;
+  align-items: baseline;
+}
+
+.lesson-title .lesson-num {
+  font-family: "Red Hat Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent1-500);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.lesson-title code {
+  font-size: 0.95rem;
+}
+
+/* Inline code */
+.post-body code {
+  font-family: "Red Hat Mono", monospace;
+  font-size: 0.85em;
+  padding: 0.12em 0.4em;
+  background: color-mix(in srgb, var(--surface-2) 85%, transparent);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text);
+}
+
+/* Code blocks */
+.post-body pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+.post-body pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  color: var(--text);
+  white-space: pre;
+}
+
+/* Tables */
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.85rem;
+}
+
+.post-body thead th {
+  text-align: left;
+  font-family: "Agrandir", sans-serif;
+  font-weight: 500;
+  color: var(--text);
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.post-body tbody td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+
+.post-body tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.post-body tbody td:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Callout */
+.post-body .callout {
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--accent1-500);
+  background: color-mix(in srgb, var(--accent1-500) 6%, transparent);
+  border-radius: 0 6px 6px 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  margin: 1.5rem 0 1.75rem;
+}
+
+/* Drafting placeholders */
+.draft-note {
+  padding: 1rem 1.25rem;
+  border: 1px dashed var(--border-default);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-2) 40%, transparent);
+  color: var(--text-subtle);
+  font-size: 0.85rem;
+  line-height: 1.75;
+  font-style: italic;
+}
+
+/* Footer */
+.post-footer {
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .post-page {
+    padding-top: 2rem;
+  }
+
+  .post-body {
+    font-size: 0.9rem;
+  }
+
+  .post-body pre {
+    padding: 0.9rem 1rem;
+    font-size: 0.75rem;
+  }
+}

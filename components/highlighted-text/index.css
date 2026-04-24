@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+:host([heading]) {
+  font-family: "Agrandir", sans-serif;
+}
+
+.text-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.3em;
+}
+
+.word {
+  display: inline-block;
+}
+
+.word.highlight {
+  color: var(--accent1-500);
+}
