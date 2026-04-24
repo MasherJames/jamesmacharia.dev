@@ -1,6 +1,8 @@
 /about/* /pages/about/:splat 200
 /contact/* /pages/contact/:splat 200
 /services/* /pages/services/:splat 200
+/writing/* /pages/writing/:splat 200
 /about /pages/about/index.html 200
 /contact /pages/contact/index.html 200
 /services /pages/services/index.html 200
+/writing /pages/writing/index.html 200
