@@ -1,19 +1,48 @@
 :host {
   display: block;
   width: 100%;
+  max-width: 100%;
 }
 
+/* The scroll container. When the grid inside is wider than the host, only
+   this wrapper scrolls — the page behind it stays put. */
 .timeline {
   width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+  padding-block: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.timeline::-webkit-scrollbar {
+  height: 6px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+.timeline::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
   grid-template-rows: 1fr auto 1fr;
   min-height: 420px;
+  min-width: 780px;
   column-gap: 1.25rem;
   position: relative;
+}
+
+.card,
+.tag {
+  scroll-snap-align: center;
 }
 
 .rail {
@@ -149,72 +178,6 @@
 .tag:hover span {
   background: color-mix(in srgb, var(--item-color) 8%, var(--surface-1));
   border-color: var(--item-color);
-}
-
-/* Mobile: collapse horizontal timeline into a vertical list with left rail */
-@media (max-width: 720px) {
-  .grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-auto-flow: row;
-    min-height: 0;
-    row-gap: 1rem;
-    padding-left: 1.5rem;
-  }
-
-  .rail {
-    grid-column: auto;
-    grid-row: auto;
-    position: absolute;
-    left: 5px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    height: auto;
-  }
-
-  .tag,
-  .card {
-    grid-column: 1;
-    grid-row: auto;
-    justify-self: start;
-  }
-
-  .tag {
-    margin-top: 0.5rem;
-  }
-
-  .card {
-    max-width: 100%;
-    align-self: stretch;
-    margin: 0;
-  }
-
-  .card.top,
-  .card.bottom {
-    align-self: stretch;
-    margin: 0;
-  }
-
-  /* Rewire connector to the left side */
-  .card::before {
-    top: 50%;
-    bottom: auto;
-    left: -1.5rem;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 1px;
-    background-image: linear-gradient(to right, var(--item-color) 50%, transparent 50%);
-    background-size: 6px 1px;
-    background-repeat: repeat-x;
-  }
-
-  .card::after {
-    top: 50%;
-    bottom: auto;
-    left: -4px;
-    transform: translate(-50%, -50%);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

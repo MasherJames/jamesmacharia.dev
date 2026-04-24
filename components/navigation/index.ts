@@ -25,6 +25,7 @@ export class JmNavigation extends JmBase {
   private boundKeyHandler = this.handleKey.bind(this);
   private boundResizeHandler = this.handleResize.bind(this);
   private boundOutsideClickHandler = this.handleOutsideClick.bind(this);
+  private navResizeObserver: ResizeObserver | null = null;
 
   constructor() {
     super(styles);
@@ -37,6 +38,12 @@ export class JmNavigation extends JmBase {
     window.addEventListener('resize', this.boundResizeHandler, { passive: true });
     document.addEventListener('click', this.boundOutsideClickHandler);
     this.updateNavHeight();
+    requestAnimationFrame(() => this.updateNavHeight());
+    const nav = this.shadow.querySelector('nav');
+    if (nav && 'ResizeObserver' in window) {
+      this.navResizeObserver = new ResizeObserver(() => this.updateNavHeight());
+      this.navResizeObserver.observe(nav);
+    }
   }
 
   disconnectedCallback() {
@@ -44,6 +51,8 @@ export class JmNavigation extends JmBase {
     window.removeEventListener('keydown', this.boundKeyHandler);
     window.removeEventListener('resize', this.boundResizeHandler);
     document.removeEventListener('click', this.boundOutsideClickHandler);
+    this.navResizeObserver?.disconnect();
+    this.navResizeObserver = null;
   }
 
   private handleScroll() {
