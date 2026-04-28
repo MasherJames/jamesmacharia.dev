@@ -298,6 +298,86 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/currently-timeline/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmCurrentlyTimeline",
+          "members": [
+            {
+              "kind": "field",
+              "name": "items",
+              "type": {
+                "text": "CurrentlyItem[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "items"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-currently-timeline",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmCurrentlyTimeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-currently-timeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/cursor-follow/index.ts",
       "declarations": [
         {
@@ -417,6 +497,373 @@
           "declaration": {
             "name": "JmCursorFollow",
             "module": "components/cursor-follow/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/gradient-divider/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmGradientDivider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "observer",
+              "type": {
+                "text": "IntersectionObserver | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant"
+            },
+            {
+              "name": "height"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-gradient-divider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmGradientDivider",
+          "declaration": {
+            "name": "JmGradientDivider",
+            "module": "components/gradient-divider/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-gradient-divider",
+          "declaration": {
+            "name": "JmGradientDivider",
+            "module": "components/gradient-divider/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/highlighted-text/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmHighlightedText",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "highlightWords",
+              "type": {
+                "text": "string[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text"
+            },
+            {
+              "name": "highlight"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-highlighted-text",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmHighlightedText",
+          "declaration": {
+            "name": "JmHighlightedText",
+            "module": "components/highlighted-text/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-highlighted-text",
+          "declaration": {
+            "name": "JmHighlightedText",
+            "module": "components/highlighted-text/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/identity-pillar/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmIdentityPillar",
+          "members": [
+            {
+              "kind": "field",
+              "name": "activeIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "-1"
+            },
+            {
+              "kind": "field",
+              "name": "rotationDeg",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "rafId",
+              "type": {
+                "text": "number | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "boundHandleScroll",
+              "type": {
+                "text": "() => void"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "pillars",
+              "type": {
+                "text": "Pillar[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "handleScroll",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateFromScroll",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "computeProgress",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "section",
+                  "type": {
+                    "text": "HTMLElement"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "applyRotation",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "applyActive",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "scrollToPillar",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "pillars"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-identity-pillar",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmIdentityPillar",
+          "declaration": {
+            "name": "JmIdentityPillar",
+            "module": "components/identity-pillar/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-identity-pillar",
+          "declaration": {
+            "name": "JmIdentityPillar",
+            "module": "components/identity-pillar/index.ts"
           }
         }
       ]
@@ -592,453 +1039,6 @@
           "declaration": {
             "name": "JmCustomCursor",
             "module": "components/custom-cursor/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/highlighted-text/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmHighlightedText",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "highlightWords",
-              "type": {
-                "text": "string[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text"
-            },
-            {
-              "name": "highlight"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-highlighted-text",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmHighlightedText",
-          "declaration": {
-            "name": "JmHighlightedText",
-            "module": "components/highlighted-text/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-highlighted-text",
-          "declaration": {
-            "name": "JmHighlightedText",
-            "module": "components/highlighted-text/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/gradient-divider/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmGradientDivider",
-          "members": [
-            {
-              "kind": "field",
-              "name": "observer",
-              "type": {
-                "text": "IntersectionObserver | null"
-              },
-              "privacy": "private",
-              "default": "null"
-            },
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "height",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant"
-            },
-            {
-              "name": "height"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-gradient-divider",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmGradientDivider",
-          "declaration": {
-            "name": "JmGradientDivider",
-            "module": "components/gradient-divider/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-gradient-divider",
-          "declaration": {
-            "name": "JmGradientDivider",
-            "module": "components/gradient-divider/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/currently-timeline/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmCurrentlyTimeline",
-          "members": [
-            {
-              "kind": "field",
-              "name": "items",
-              "type": {
-                "text": "CurrentlyItem[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "items"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-currently-timeline",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmCurrentlyTimeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-currently-timeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/identity-pillar/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmIdentityPillar",
-          "members": [
-            {
-              "kind": "field",
-              "name": "activeIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "-1"
-            },
-            {
-              "kind": "field",
-              "name": "rotationDeg",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "rafId",
-              "type": {
-                "text": "number | null"
-              },
-              "privacy": "private",
-              "default": "null"
-            },
-            {
-              "kind": "field",
-              "name": "boundHandleScroll",
-              "type": {
-                "text": "() => void"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "pillars",
-              "type": {
-                "text": "Pillar[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "handleScroll",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateFromScroll",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "computeProgress",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "number"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "section",
-                  "type": {
-                    "text": "HTMLElement"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "applyRotation",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "applyActive",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "scrollToPillar",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "pillars"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-identity-pillar",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmIdentityPillar",
-          "declaration": {
-            "name": "JmIdentityPillar",
-            "module": "components/identity-pillar/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-identity-pillar",
-          "declaration": {
-            "name": "JmIdentityPillar",
-            "module": "components/identity-pillar/index.ts"
           }
         }
       ]
@@ -1679,6 +1679,98 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/status-dot/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmStatusDot",
+          "members": [
+            {
+              "kind": "field",
+              "name": "isAvailable",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "available"
+            },
+            {
+              "name": "label"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-status-dot",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmStatusDot",
+          "declaration": {
+            "name": "JmStatusDot",
+            "module": "components/status-dot/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-status-dot",
+          "declaration": {
+            "name": "JmStatusDot",
+            "module": "components/status-dot/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/theme-switcher/index.ts",
       "declarations": [
         {
@@ -1866,98 +1958,6 @@
           "declaration": {
             "name": "JmTimelineStrip",
             "module": "components/timeline-strip/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/status-dot/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmStatusDot",
-          "members": [
-            {
-              "kind": "field",
-              "name": "isAvailable",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "available"
-            },
-            {
-              "name": "label"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-status-dot",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmStatusDot",
-          "declaration": {
-            "name": "JmStatusDot",
-            "module": "components/status-dot/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-status-dot",
-          "declaration": {
-            "name": "JmStatusDot",
-            "module": "components/status-dot/index.ts"
           }
         }
       ]
