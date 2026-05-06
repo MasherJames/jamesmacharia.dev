@@ -298,137 +298,84 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/currently-timeline/index.ts",
+      "path": "components/custom-cursor/index.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "JmCurrentlyTimeline",
+          "name": "JmCustomCursor",
           "members": [
             {
               "kind": "field",
-              "name": "items",
+              "name": "dotEl",
               "type": {
-                "text": "CurrentlyItem[]"
+                "text": "HTMLElement | null"
               },
               "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
+              "default": "null"
             },
             {
               "kind": "field",
-              "name": "shadow",
+              "name": "ringEl",
               "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "items"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-currently-timeline",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmCurrentlyTimeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-currently-timeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/cursor-follow/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmCursorFollow",
-          "members": [
-            {
-              "kind": "field",
-              "name": "midPoints",
-              "type": {
-                "text": "object"
+                "text": "HTMLElement | null"
               },
               "privacy": "private",
-              "default": "{ x: 0, y: 0 }"
+              "default": "null"
             },
             {
               "kind": "field",
-              "name": "rateOfChange",
-              "type": {
-                "text": "object"
-              },
-              "privacy": "private",
-              "default": "{ x: 0, y: 0 }"
-            },
-            {
-              "kind": "field",
-              "name": "cursorStyle",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "maxTransform",
+              "name": "mouseX",
               "type": {
                 "text": "number"
               },
               "privacy": "private",
-              "readonly": true
+              "default": "0"
             },
             {
               "kind": "field",
-              "name": "handleMouseEnter",
-              "privacy": "private"
+              "name": "mouseY",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "ringX",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "ringY",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "animationId",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
             },
             {
               "kind": "field",
               "name": "handleMouseMove",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleMouseEnter",
               "privacy": "private"
             },
             {
@@ -438,108 +385,38 @@
             },
             {
               "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "cursor"
-            },
-            {
-              "name": "max-transform"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-cursor-follow",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmCursorFollow",
-          "declaration": {
-            "name": "JmCursorFollow",
-            "module": "components/cursor-follow/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-cursor-follow",
-          "declaration": {
-            "name": "JmCursorFollow",
-            "module": "components/cursor-follow/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/gradient-divider/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmGradientDivider",
-          "members": [
-            {
-              "kind": "field",
-              "name": "observer",
-              "type": {
-                "text": "IntersectionObserver | null"
-              },
+              "name": "isInteractive",
               "privacy": "private",
-              "default": "null"
-            },
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "string"
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
               },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "height",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
+              "parameters": [
+                {
+                  "name": "el",
+                  "type": {
+                    "text": "HTMLElement"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
-              "name": "render",
+              "name": "setHovering",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "hovering",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "runLoop",
               "privacy": "private"
             },
             {
@@ -567,37 +444,29 @@
               }
             }
           ],
-          "attributes": [
-            {
-              "name": "variant"
-            },
-            {
-              "name": "height"
-            }
-          ],
           "superclass": {
             "name": "JmBase",
             "module": "/components/base"
           },
-          "tagName": "jm-gradient-divider",
+          "tagName": "jm-custom-cursor",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "JmGradientDivider",
+          "name": "JmCustomCursor",
           "declaration": {
-            "name": "JmGradientDivider",
-            "module": "components/gradient-divider/index.ts"
+            "name": "JmCustomCursor",
+            "module": "components/custom-cursor/index.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "jm-gradient-divider",
+          "name": "jm-custom-cursor",
           "declaration": {
-            "name": "JmGradientDivider",
-            "module": "components/gradient-divider/index.ts"
+            "name": "JmCustomCursor",
+            "module": "components/custom-cursor/index.ts"
           }
         }
       ]
@@ -870,84 +739,57 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/custom-cursor/index.ts",
+      "path": "components/cursor-follow/index.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "JmCustomCursor",
+          "name": "JmCursorFollow",
           "members": [
             {
               "kind": "field",
-              "name": "dotEl",
+              "name": "midPoints",
               "type": {
-                "text": "HTMLElement | null"
+                "text": "object"
               },
               "privacy": "private",
-              "default": "null"
+              "default": "{ x: 0, y: 0 }"
             },
             {
               "kind": "field",
-              "name": "ringEl",
+              "name": "rateOfChange",
               "type": {
-                "text": "HTMLElement | null"
+                "text": "object"
               },
               "privacy": "private",
-              "default": "null"
+              "default": "{ x: 0, y: 0 }"
             },
             {
               "kind": "field",
-              "name": "mouseX",
+              "name": "cursorStyle",
               "type": {
-                "text": "number"
+                "text": "string"
               },
               "privacy": "private",
-              "default": "0"
+              "readonly": true
             },
             {
               "kind": "field",
-              "name": "mouseY",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "ringX",
+              "name": "maxTransform",
               "type": {
                 "text": "number"
               },
               "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "ringY",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "animationId",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "handleMouseMove",
-              "privacy": "private"
+              "readonly": true
             },
             {
               "kind": "field",
               "name": "handleMouseEnter",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleMouseMove",
               "privacy": "private"
             },
             {
@@ -957,38 +799,7 @@
             },
             {
               "kind": "method",
-              "name": "isInteractive",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "el",
-                  "type": {
-                    "text": "HTMLElement"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setHovering",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "hovering",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "runLoop",
+              "name": "render",
               "privacy": "private"
             },
             {
@@ -1016,29 +827,218 @@
               }
             }
           ],
+          "attributes": [
+            {
+              "name": "cursor"
+            },
+            {
+              "name": "max-transform"
+            }
+          ],
           "superclass": {
             "name": "JmBase",
             "module": "/components/base"
           },
-          "tagName": "jm-custom-cursor",
+          "tagName": "jm-cursor-follow",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "JmCustomCursor",
+          "name": "JmCursorFollow",
           "declaration": {
-            "name": "JmCustomCursor",
-            "module": "components/custom-cursor/index.ts"
+            "name": "JmCursorFollow",
+            "module": "components/cursor-follow/index.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "jm-custom-cursor",
+          "name": "jm-cursor-follow",
           "declaration": {
-            "name": "JmCustomCursor",
-            "module": "components/custom-cursor/index.ts"
+            "name": "JmCursorFollow",
+            "module": "components/cursor-follow/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/gradient-divider/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmGradientDivider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "observer",
+              "type": {
+                "text": "IntersectionObserver | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant"
+            },
+            {
+              "name": "height"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-gradient-divider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmGradientDivider",
+          "declaration": {
+            "name": "JmGradientDivider",
+            "module": "components/gradient-divider/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-gradient-divider",
+          "declaration": {
+            "name": "JmGradientDivider",
+            "module": "components/gradient-divider/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/currently-timeline/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmCurrentlyTimeline",
+          "members": [
+            {
+              "kind": "field",
+              "name": "items",
+              "type": {
+                "text": "CurrentlyItem[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "items"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-currently-timeline",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmCurrentlyTimeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-currently-timeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
           }
         }
       ]
