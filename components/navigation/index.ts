@@ -8,6 +8,7 @@ interface NavItem {
   label: string;
   href: string;
   id: string;
+  opensInNewTab?: boolean;
 }
 
 const NAV_ITEMS: NavItem[] = [
@@ -16,6 +17,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Services', href: '/services/', id: 'services' },
   { label: 'Writing', href: '/writing/', id: 'writing' },
   { label: 'Contact', href: '/contact/', id: 'contact' },
+  { label: 'Resume', href: '/james-macharia-resume.pdf', id: 'resume', opensInNewTab: true },
 ];
 
 const MOBILE_BREAKPOINT = 768;
@@ -122,9 +124,12 @@ export class JmNavigation extends JmBase {
 
   private renderNavLink(item: NavItem): string {
     const isActive = this.activePage === item.id;
+    const newTabAttributes = item.opensInNewTab
+      ? ` target="_blank" rel="noopener" aria-label="${item.label} (opens in a new tab)"`
+      : '';
     return `
       <li class="nav-link ${isActive ? 'active' : ''}">
-        <a href="${item.href}"${isActive ? ' aria-current="page"' : ''}>${item.label}</a>
+        <a href="${item.href}"${isActive ? ' aria-current="page"' : ''}${newTabAttributes}>${item.label}</a>
         <svg viewBox="0 0 120 44" preserveAspectRatio="none" aria-hidden="true">
           <ellipse cx="60" cy="22" rx="55" ry="18" />
         </svg>
