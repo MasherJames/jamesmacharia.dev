@@ -28,7 +28,7 @@ export class JmLayout extends JmBase {
         <div class="footer-inner">
           <span class="footer-copy">&copy; ${this.currentYear} James Macharia</span>
           <ul class="footer-links">
-            <li><a href="/james-macharia-resume.pdf" target="_blank" rel="noopener" aria-label="Resume (opens in a new tab)">Resume</a></li>
+            <li><a href="/resume.pdf" target="_blank" rel="noopener" aria-label="Resume (opens in a new tab)">Resume</a></li>
             <li><a href="https://github.com/MasherJames" target="_blank" rel="noopener">GitHub</a></li>
             <li><a href="https://www.linkedin.com/in/james-macharia-b53963160/" target="_blank" rel="noopener">LinkedIn</a></li>
             <li><a href="https://x.com/MasherJames" target="_blank" rel="noopener">X</a></li>

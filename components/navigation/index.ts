@@ -17,7 +17,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Services', href: '/services/', id: 'services' },
   { label: 'Writing', href: '/writing/', id: 'writing' },
   { label: 'Contact', href: '/contact/', id: 'contact' },
-  { label: 'Resume', href: '/james-macharia-resume.pdf', id: 'resume', opensInNewTab: true },
+  { label: 'Resume', href: '/resume.pdf', id: 'resume', opensInNewTab: true },
 ];
 
 const MOBILE_BREAKPOINT = 768;

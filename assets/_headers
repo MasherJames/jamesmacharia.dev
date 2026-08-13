@@ -19,8 +19,8 @@
 /scripts/*
   Cache-Control: public, max-age=3600, must-revalidate
 
-/james-macharia-resume.pdf
-  Content-Disposition: inline; filename="James-Macharia-Resume.pdf"
+/resume.pdf
+  Content-Disposition: inline; filename="resume.pdf"
   Cache-Control: public, max-age=3600, must-revalidate
 
 # HTML shells should revalidate so new deploys are seen promptly.
