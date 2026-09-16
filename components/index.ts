@@ -10,6 +10,5 @@ export { JmNavigation } from './navigation';
 export { JmProjectCard } from './project-card';
 export { JmSectionReveal } from './section-reveal';
 export { JmStackedCarousel } from './stacked-carousel';
-export { JmStatusDot } from './status-dot';
 export { JmThemeSwitcher } from './theme-switcher';
 export { JmTimelineStrip } from './timeline-strip';

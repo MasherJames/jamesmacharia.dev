@@ -9,6 +9,5 @@ import '@components/identity-pillar';
 import '@components/project-card';
 import '@components/section-reveal';
 import '@components/stacked-carousel';
-import '@components/status-dot';
 import '@components/button';
 import './styles.css';

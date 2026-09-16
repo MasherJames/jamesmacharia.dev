@@ -105,14 +105,6 @@
         },
         {
           "kind": "js",
-          "name": "JmStatusDot",
-          "declaration": {
-            "name": "JmStatusDot",
-            "module": "./status-dot"
-          }
-        },
-        {
-          "kind": "js",
           "name": "JmThemeSwitcher",
           "declaration": {
             "name": "JmThemeSwitcher",
@@ -125,6 +117,211 @@
           "declaration": {
             "name": "JmTimelineStrip",
             "module": "./timeline-strip"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/cursor-follow/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmCursorFollow",
+          "members": [
+            {
+              "kind": "field",
+              "name": "midPoints",
+              "type": {
+                "text": "object"
+              },
+              "privacy": "private",
+              "default": "{ x: 0, y: 0 }"
+            },
+            {
+              "kind": "field",
+              "name": "rateOfChange",
+              "type": {
+                "text": "object"
+              },
+              "privacy": "private",
+              "default": "{ x: 0, y: 0 }"
+            },
+            {
+              "kind": "field",
+              "name": "cursorStyle",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "maxTransform",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "handleMouseEnter",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleMouseMove",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleMouseLeave",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "cursor"
+            },
+            {
+              "name": "max-transform"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-cursor-follow",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmCursorFollow",
+          "declaration": {
+            "name": "JmCursorFollow",
+            "module": "components/cursor-follow/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-cursor-follow",
+          "declaration": {
+            "name": "JmCursorFollow",
+            "module": "components/cursor-follow/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/currently-timeline/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmCurrentlyTimeline",
+          "members": [
+            {
+              "kind": "field",
+              "name": "items",
+              "type": {
+                "text": "CurrentlyItem[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "items"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-currently-timeline",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmCurrentlyTimeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-currently-timeline",
+          "declaration": {
+            "name": "JmCurrentlyTimeline",
+            "module": "components/currently-timeline/index.ts"
           }
         }
       ]
@@ -292,131 +489,6 @@
           "declaration": {
             "name": "JmButton",
             "module": "components/button/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/cursor-follow/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmCursorFollow",
-          "members": [
-            {
-              "kind": "field",
-              "name": "midPoints",
-              "type": {
-                "text": "object"
-              },
-              "privacy": "private",
-              "default": "{ x: 0, y: 0 }"
-            },
-            {
-              "kind": "field",
-              "name": "rateOfChange",
-              "type": {
-                "text": "object"
-              },
-              "privacy": "private",
-              "default": "{ x: 0, y: 0 }"
-            },
-            {
-              "kind": "field",
-              "name": "cursorStyle",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "maxTransform",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "handleMouseEnter",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleMouseMove",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleMouseLeave",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "cursor"
-            },
-            {
-              "name": "max-transform"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-cursor-follow",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmCursorFollow",
-          "declaration": {
-            "name": "JmCursorFollow",
-            "module": "components/cursor-follow/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-cursor-follow",
-          "declaration": {
-            "name": "JmCursorFollow",
-            "module": "components/cursor-follow/index.ts"
           }
         }
       ]
@@ -598,98 +670,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/highlighted-text/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmHighlightedText",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "highlightWords",
-              "type": {
-                "text": "string[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text"
-            },
-            {
-              "name": "highlight"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-highlighted-text",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmHighlightedText",
-          "declaration": {
-            "name": "JmHighlightedText",
-            "module": "components/highlighted-text/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-highlighted-text",
-          "declaration": {
-            "name": "JmHighlightedText",
-            "module": "components/highlighted-text/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/gradient-divider/index.ts",
       "declarations": [
         {
@@ -785,6 +765,98 @@
           "declaration": {
             "name": "JmGradientDivider",
             "module": "components/gradient-divider/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/highlighted-text/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "JmHighlightedText",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "highlightWords",
+              "type": {
+                "text": "string[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "protected",
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "default": "[baseStyles]",
+              "type": {
+                "text": "CSSStyleSheet[]"
+              },
+              "inheritedFrom": {
+                "name": "JmBase",
+                "module": "components/base/index.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text"
+            },
+            {
+              "name": "highlight"
+            }
+          ],
+          "superclass": {
+            "name": "JmBase",
+            "module": "/components/base"
+          },
+          "tagName": "jm-highlighted-text",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "JmHighlightedText",
+          "declaration": {
+            "name": "JmHighlightedText",
+            "module": "components/highlighted-text/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "jm-highlighted-text",
+          "declaration": {
+            "name": "JmHighlightedText",
+            "module": "components/highlighted-text/index.ts"
           }
         }
       ]
@@ -959,86 +1031,6 @@
           "declaration": {
             "name": "JmIdentityPillar",
             "module": "components/identity-pillar/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/currently-timeline/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmCurrentlyTimeline",
-          "members": [
-            {
-              "kind": "field",
-              "name": "items",
-              "type": {
-                "text": "CurrentlyItem[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "items"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-currently-timeline",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmCurrentlyTimeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-currently-timeline",
-          "declaration": {
-            "name": "JmCurrentlyTimeline",
-            "module": "components/currently-timeline/index.ts"
           }
         }
       ]
@@ -1673,98 +1665,6 @@
           "declaration": {
             "name": "JmStackedCarousel",
             "module": "components/stacked-carousel/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/status-dot/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "JmStatusDot",
-          "members": [
-            {
-              "kind": "field",
-              "name": "isAvailable",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "ShadowRoot"
-              },
-              "privacy": "protected",
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "adoptedStyleSheets",
-              "default": "[baseStyles]",
-              "type": {
-                "text": "CSSStyleSheet[]"
-              },
-              "inheritedFrom": {
-                "name": "JmBase",
-                "module": "components/base/index.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "available"
-            },
-            {
-              "name": "label"
-            }
-          ],
-          "superclass": {
-            "name": "JmBase",
-            "module": "/components/base"
-          },
-          "tagName": "jm-status-dot",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "JmStatusDot",
-          "declaration": {
-            "name": "JmStatusDot",
-            "module": "components/status-dot/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "jm-status-dot",
-          "declaration": {
-            "name": "JmStatusDot",
-            "module": "components/status-dot/index.ts"
           }
         }
       ]

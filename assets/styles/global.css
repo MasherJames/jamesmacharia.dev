@@ -202,7 +202,6 @@ jm-identity-pillar:not(:defined),
 jm-stacked-carousel:not(:defined),
 jm-section-reveal:not(:defined),
 jm-project-card:not(:defined),
-jm-status-dot:not(:defined),
 jm-timeline-strip:not(:defined),
 jm-currently-timeline:not(:defined) {
     display: block;

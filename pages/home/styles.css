@@ -7,10 +7,6 @@
   margin-bottom: 2.5rem;
 }
 
-.hero jm-status-dot {
-  margin-bottom: 2rem;
-}
-
 .hero-headline {
   font-size: clamp(1.75rem, 4.5vw, 3rem);
   line-height: 1.15;
